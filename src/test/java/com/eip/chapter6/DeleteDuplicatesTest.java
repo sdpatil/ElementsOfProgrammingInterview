@@ -1,4 +1,4 @@
-package com.eip.chapter5;
+package com.eip.chapter6;
 
 import org.junit.Before;
 import org.junit.Test;

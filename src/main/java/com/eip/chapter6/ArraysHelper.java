@@ -1,4 +1,4 @@
-package com.eip.chapter5;
+package com.eip.chapter6;
 
 import java.util.ArrayList;
 import java.util.Arrays;

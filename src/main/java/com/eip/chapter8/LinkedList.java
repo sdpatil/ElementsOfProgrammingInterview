@@ -6,8 +6,8 @@ package com.eip.chapter8;
 public class LinkedList<T> {
     private ListNode<T> head;
 
-    public ListNode<T> search(ListNode<T> l,T key){
-
+    public ListNode<T> search(T key){
+        ListNode l = head;
         while(l!= null){
             if(l.data == key)
                 return l;
@@ -25,5 +25,43 @@ public class LinkedList<T> {
                 l = l.next;
             l.next = new ListNode(data);
         }
+    }
+
+    public void insertAfter(T fKey, T newKey){
+        if(head == null){
+            head = new ListNode<T>(newKey);
+        }else{
+            ListNode l = head;
+            while(l.next != null){
+                if(l.data == fKey){
+                    ListNode newNode = new ListNode(newKey);
+                    newNode.next = l.next;
+                    l.next = newNode;
+                }
+            }
+        }
+    }
+
+    public void deleteNode(T key){
+        if(head == null)
+            return;
+        if(head.data == key){
+            head = head.next;
+            return;
+        }
+        ListNode l = head;
+        while(l.next != null){
+            if(l.next.data == key){
+                l.next = l.next.next;
+            }
+        }
+
+    }
+
+    @Override
+    public String toString() {
+        return "LinkedList{" +
+                "head=" + head +
+                '}';
     }
 }

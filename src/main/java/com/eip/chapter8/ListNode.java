@@ -12,6 +12,21 @@ public class ListNode<T> {
 
     }
 
+    public ListNode(T data, ListNode<T> next) {
+        this.data = data;
+        this.next = next;
+    }
+
+    public int getLength(){
+        int length = 1;
+        ListNode current = next;
+        while(current != null){
+            length = length+1;
+            current = current.next;
+        }
+            return length;
+    }
+
     @Override
     public String toString() {
         return "ListNode{" +

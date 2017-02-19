@@ -5,6 +5,7 @@ package com.eip.chapter10;
  */
 public class BinaryTreeNode<T> {
     public T data;
+    public int size;
     public BinaryTreeNode<T> left,right;
 
     public BinaryTreeNode(T data) {

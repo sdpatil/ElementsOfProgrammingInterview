@@ -1,19 +1,18 @@
 package com.eip.chapter10;
 
-import com.eip.chapter10.FindSuccessor;
 import org.junit.Before;
 import org.junit.Test;
 
 /**
- * Created by sunilpatil on 2/18/17.
+ * Created by sunilpatil on 2/19/17.
  */
-public class FindSuccessorTest {
-    FindSuccessor findSuccessor;
+public class InOrderTraversalWithConstantSpaceTest {
+    InOrderTraversalWithConstantSpace inOrderTraversalWithConstantSpace;
     BinaryTree<Integer> rootNode;
 
     @Before
     public void setup(){
-        findSuccessor = new FindSuccessor();
+        inOrderTraversalWithConstantSpace = new InOrderTraversalWithConstantSpace();
         rootNode =new BinaryTree<Integer>(314,null);
 
         rootNode.left = new BinaryTree<Integer>(6,rootNode);
@@ -37,8 +36,6 @@ public class FindSuccessorTest {
 
     @Test
     public void simpleTest(){
-        assert findSuccessor.findSuccessor(rootNode.left.left.left).equals(rootNode.left.left);
-        assert findSuccessor.findSuccessor(rootNode).equals(rootNode.right.left);
-
+        inOrderTraversalWithConstantSpace.inOrderTraversal(rootNode);
     }
 }

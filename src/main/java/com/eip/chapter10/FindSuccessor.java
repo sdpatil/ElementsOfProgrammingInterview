@@ -5,7 +5,18 @@ package com.eip.chapter10;
  */
 public class FindSuccessor {
     public BinaryTree<Integer> findSuccessor(BinaryTree<Integer> node){
-        return null;
+        BinaryTree<Integer> returnNode = node;
 
+        if(returnNode.right != null) {
+            returnNode = returnNode.right;
+            while(returnNode.left != null)
+                returnNode = returnNode.left;
+            return returnNode;
+        }
+
+        while ( returnNode.parent != null && returnNode.parent.right == returnNode)
+            returnNode = returnNode.parent;
+
+        return returnNode.parent;
     }
 }

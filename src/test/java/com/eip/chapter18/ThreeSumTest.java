@@ -47,4 +47,6 @@ public class ThreeSumTest {
         assert threeSum.hasThreeSum(a,22) ==3;
 
     }
+
+
 }

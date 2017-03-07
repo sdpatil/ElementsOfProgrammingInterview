@@ -12,11 +12,11 @@ public class StringToInt {
         for (int i = 0; i < c.length; i++) {
             //Check if this negative value
             if (c[i] != '-')
-                returnValue = Character.getNumericValue(c[i])  + returnValue* 10;
+                returnValue = Character.getNumericValue(c[i]) + returnValue * 10;
 
         }
-        if(c[0] == '-')
-            returnValue = returnValue*-1;
+        if (c[0] == '-')
+            returnValue = returnValue * -1;
 
         System.out.println("Exiting StringToInt.stringToInt " + returnValue);
         return returnValue;
@@ -26,14 +26,14 @@ public class StringToInt {
         System.out.println("Entering StringToInt.intToString " + i);
         StringBuffer b = new StringBuffer();
         boolean isNegative = false;
-        if(i < 0)
+        if (i < 0)
             isNegative = true;
         i = Math.abs(i);
-        while(i != 0){
-            b.append(i%10);
-            i = i /10;
+        while (i != 0) {
+            b.append(i % 10);
+            i = i / 10;
         }
-        if(isNegative)
+        if (isNegative)
             b.append("-");
         String returnValue = b.reverse().toString();
         System.out.println("Exiting StringToInt.intToString " + returnValue);

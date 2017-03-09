@@ -55,7 +55,16 @@ public class LinkedList<T> {
                 l.next = l.next.next;
             }
         }
+    }
 
+    public int size(){
+        int size = 1;
+        ListNode next = head;
+        while(next != null){
+            size = size+1;
+            next = next.next;
+        }
+        return size;
     }
 
     @Override

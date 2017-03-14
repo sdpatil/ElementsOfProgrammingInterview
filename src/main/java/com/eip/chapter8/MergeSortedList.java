@@ -4,7 +4,7 @@ package com.eip.chapter8;
  * Created by sunilpatil on 2/9/17.
  */
 public class MergeSortedList {
-    public ListNode<Integer> mergeTwoSortedLinkedLists1(ListNode<Integer> l1, ListNode<Integer> l2){
+    public static ListNode<Integer> mergeTwoSortedLinkedLists1(ListNode<Integer> l1, ListNode<Integer> l2){
         ListNode<Integer> dummyNode = new ListNode<Integer>(0,null);
         ListNode<Integer> current = dummyNode;
 

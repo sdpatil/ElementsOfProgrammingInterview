@@ -11,6 +11,12 @@ public class BSTNode<T> {
         this.data = data;
     }
 
+    public BSTNode(T data, BSTNode left, BSTNode right) {
+        this.data = data;
+        this.left = left;
+        this.right = right;
+    }
+
     @Override
     public String toString() {
         return "BSTNode{" +

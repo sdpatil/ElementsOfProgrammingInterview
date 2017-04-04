@@ -5,7 +5,7 @@ package com.eip.chapter10;
  */
 public class BinaryTree<T> {
     public T data;
-    BinaryTree<T> parent, left, right;
+    public BinaryTree<T> parent, left, right;
 
     public BinaryTree(T data ,BinaryTree<T> p) {
         this.data = data;

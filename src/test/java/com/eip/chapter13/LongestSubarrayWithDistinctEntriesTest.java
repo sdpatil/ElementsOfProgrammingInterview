@@ -20,6 +20,8 @@ public class LongestSubarrayWithDistinctEntriesTest {
     @Test
     public void simpleTest(){
         List<Character> characterList = Arrays.asList('f','s','f','e','t','w','e','n','w','e');
-        assert longestSubarrayWithDistinctEntries.longestSubarrayWithDistinctEntries(characterList) ==5;
+        int result = longestSubarrayWithDistinctEntries.longestSubarrayWithDistinctEntries(characterList);
+        System.out.println("Longest subarray with distinct entries " + result);
+        assert result == 5;
     }
 }

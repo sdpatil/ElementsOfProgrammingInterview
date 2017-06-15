@@ -6,31 +6,18 @@ package com.eip.chapter5;
 public class PlayGround {
 
     public static void main(String[] argv) {
-        System.out.println(Double.valueOf("1.23"));
-        System.out.println(Character.getNumericValue('a'));
-
-        int a = 60;
-        int b = 13;
-
-        printNumber(a);
-        printNumber(b);
-
-
-        int result = a >> 3 ;
-        printNumber(result);
-    }
-
-    private static void printNumber(int n) {
-        System.out.printf("Decimal " + n + "\t%64s \n", Integer.toBinaryString(n));
+      System.out.println(Integer.toBinaryString(20) + " "
+              + Integer.toBinaryString(clearLowestSetBit(20)));
+        System.out.println(Integer.toBinaryString(16) + " "
+                + Integer.toBinaryString(getLowestSetBit(16)));
 
     }
 
-    public static short parity(long x) {
-        short result = 0;
-        while (x != 0) {
-            result ^= (x & 1);
-            x >>>= 1;
-        }
-        return result;
+    private static int clearLowestSetBit(int x){
+        return x & (x-1);
+    }
+
+    private static int getLowestSetBit(int x){
+        return x & ~(x-1);
     }
 }

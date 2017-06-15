@@ -15,7 +15,7 @@ public class TowerOfHanoi {
 
     public void computeTowerOfHanoi(int numRings, String from, String to, String spare){
         if( numRings ==1)
-            printMove(from,to);
+            printMove(from,to,numRings);
         else{
             computeTowerOfHanoi(numRings-1,from,spare,to);
             computeTowerOfHanoi(1, from, to, spare);
@@ -23,7 +23,8 @@ public class TowerOfHanoi {
         }
     }
 
-    private void printMove(String from, String to){
-        System.out.println("Move from " + from + " " + to);
+    private void printMove(String from, String to, int n){
+        System.out.printf("Move Disk - %d from %s to %s \n",n,from,to);
+
     }
 }

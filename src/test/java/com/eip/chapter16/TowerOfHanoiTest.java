@@ -15,7 +15,11 @@ public class TowerOfHanoiTest {
     }
 
     @Test
-    public void simpleTest(){
+    public void threeTest(){
+        towerOfHanoi.computeTowerOfHanoi(5);
+    }
+    @Test
+    public void fiveTest(){
         towerOfHanoi.computeTowerOfHanoi(5);
     }
 }

@@ -13,14 +13,14 @@ public class DutchNationalFlag {
     public static void main(String[] argv) {
         List<Color> flags = new ArrayList();
         flags.add(Color.RED);
-        flags.add(Color.WHITE);
         flags.add(Color.BLUE);
+        flags.add(Color.WHITE);
         flags.add(Color.RED);
         flags.add(Color.BLUE);
         flags.add(Color.WHITE);
         flags.add(Color.WHITE);
         System.out.println(flags);
-        dutchFlagPartition(1, flags);
+        dutchFlagPartition4(2, flags);
         System.out.println(flags);
     }
 
@@ -40,7 +40,7 @@ public class DutchNationalFlag {
         }
 
     }
-
+/*
     public static void dutchFlagPartition3(int pivotIndex, List<Color> A) {
         Color partition = A.get(pivotIndex);
         int smaller = 0;
@@ -99,7 +99,7 @@ public class DutchNationalFlag {
 
 
     }
-
+*/
     protected void swap(List<Color> A, int first, int second) {
         Collections.swap(A, first, second);
     }

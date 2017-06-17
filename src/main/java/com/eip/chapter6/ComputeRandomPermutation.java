@@ -1,13 +1,23 @@
 package com.eip.chapter6;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
 
 /**
- * Created by sunilpatil on 2/8/17.
+ * Created by sunilpatil on 6/16/17.
  */
-public class SampleOfflineData {
+public class ComputeRandomPermutation {
+    public  List<Integer> computeRandomPermutation(int n){
+        List<Integer> result = new ArrayList<>(n);
+        for(int i = 0 ; i < n ; i++){
+            result.add(i);
+        }
+        randomSample(n,result);
+
+        return result;
+    }
 
     public void randomSample(int k, List<Integer> A){
         Random random = new Random();

@@ -20,9 +20,35 @@ public class DutchNationalFlag {
         flags.add(Color.WHITE);
         flags.add(Color.WHITE);
         System.out.println(flags);
-        dutchFlagPartition4(2, flags);
+        dutchFlagPartition(5, flags);
         System.out.println(flags);
     }
+
+    /**
+     * Given color
+     * [RED, BLUE, WHITE, RED, BLUE, WHITE, WHITE] sort it to
+     * [RED, RED, WHITE, WHITE, WHITE, BLUE, BLUE]
+     * There are 3 buckets so split it like that
+     */
+    public static void dutchFlagPartition(int pivotIndex, List<Color> A) {
+        Color partition = A.get(pivotIndex);
+        int smaller = 0;
+        int equal = 0 ;
+        int larger = A.size()-1;
+        while (equal <larger){
+            if(A.get(equal).ordinal() < partition.ordinal()){
+                //If current color is RED (smallest) put it in smallest bucket
+                Collections.swap(A,smaller++,equal++);
+            }else if(A.get(equal).ordinal() > partition.ordinal()){
+                //If current color is BLUE (Largest) put it in largest bucket
+                Collections.swap(A,larger--,equal++);
+            }else{
+                //If current color is white put it in white bucket
+                equal++;
+            }
+        }
+    }
+
 
     public static void dutchFlagPartition4(int pivotIndex, List<Color> A) {
         Color partition = A.get(pivotIndex);
@@ -38,7 +64,6 @@ public class DutchNationalFlag {
                 Collections.swap(A,equal++,larger--);
             }
         }
-
     }
 /*
     public static void dutchFlagPartition3(int pivotIndex, List<Color> A) {

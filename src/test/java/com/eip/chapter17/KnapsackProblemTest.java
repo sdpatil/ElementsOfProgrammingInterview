@@ -20,10 +20,10 @@ public class KnapsackProblemTest {
     @Test
     public void simpleTest(){
         List<KnapsackProblem.Item> itemList = Arrays.asList(
-                new KnapsackProblem.Item(5,60),
+                new KnapsackProblem.Item(2,30),
                 new KnapsackProblem.Item(3,50),
                 new KnapsackProblem.Item(4,70),
-                new KnapsackProblem.Item(2,30)
+                new KnapsackProblem.Item(5,60)
         );
 
         int value = knapsackProblem.optimumSubjectToCapacity(itemList,5);

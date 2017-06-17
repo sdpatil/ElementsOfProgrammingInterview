@@ -30,7 +30,7 @@ public class SampleOfflineDataTest {
     public void sampleMoreThanHalfSize() {
         List<Integer> input = Arrays.asList(1, 2, 3, 4, 5, 6,7,8,9,10);
         System.out.println("Input " + input);
-        sampleOfflineData.randomSampleRemove(7, input);
+        sampleOfflineData.randomSample(7, input);
         System.out.println("output " + input);
 
     }

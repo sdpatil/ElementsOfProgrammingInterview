@@ -33,7 +33,21 @@ public class RemoveNameDuplicates {
         }
     }
 
-    public List<Name> eliminateDuplicate(List<Name> A){
+    /*
+    This question is about how to remove duplicates
+     */
+    public List<Name> eliminateDuplicate(List<Name> A) {
+        Collections.sort(A);
+        int writeIndex = 1;
+        for(int i = 1; i < A.size(); i++){
+            if(!A.get(i).firstName.equals(A.get(i-1).firstName)){
+                A.set(writeIndex++, A.get(i));
+            }
+        }
+        return A.subList(0,writeIndex );
+    }
+
+     /*   public List<Name> eliminateDuplicate2(List<Name> A){
         Collections.sort(A);
         int result = 0;
         for(int i = 1; i < A.size();i++){
@@ -42,5 +56,5 @@ public class RemoveNameDuplicates {
         }
 
         return A.subList(0,++result);
-    }
+    }*/
 }

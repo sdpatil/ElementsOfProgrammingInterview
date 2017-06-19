@@ -17,9 +17,9 @@ public class ConvertBaseTest {
 
     @Test
     public void convertFromStringToIntTest(){
-        assert convertBase.convertFromStringToInt("123",10)==123;
-        assert convertBase.convertFromStringToInt("111",2)==7;
-        assert convertBase.convertFromStringToInt("64",16)==100;
+        assert convertBase.convertFromStringToBase("123",10)==123;
+        assert convertBase.convertFromStringToBase("111",2)==7;
+        assert convertBase.convertFromStringToBase("64",16)==100;
     }
 
     @Test
@@ -36,7 +36,7 @@ public class ConvertBaseTest {
 
     @Test
     public void convertBase(){
-        System.out.println(convertBase.convertFromStringToInt("1000",-2));
+        System.out.println(convertBase.convertFromStringToBase("1000",-2));
         System.out.println(convertBase.constructFromBase(-8,-2));
 
     }

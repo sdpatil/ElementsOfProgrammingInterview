@@ -7,7 +7,31 @@ import java.util.Arrays;
  */
 public class LevenshteinDistance {
 
-    public int levenshteinDistance2(String A, String B){
+    public int levenshteinDistanceDP(String A, String B) {
+        int[][] dpTable = new int[A.length()+1][B.length()+1];
+        dpTable[0][0] = 0;
+
+        for(int i = 0; i < dpTable.length ; i++)
+            dpTable[i][0] = i;
+
+        for(int i = 0 ; i < dpTable[0].length ; i++)
+            dpTable[0][i] = i;
+
+        for(int i = 1 ; i <= A.length() ; i++){
+            for(int j = 1 ; j <= B.length() ; j++){
+                if(A.charAt(i-1) == B.charAt(j-1)){
+                    dpTable[i][j] = dpTable[i-1][j-1];
+                }else{
+                    dpTable[i][j] = Math.min(dpTable[i-1][j-1], Math.min(dpTable[i-1][j],dpTable[i][j-1])) +1;
+                }
+            }
+        }
+        for(int[] dpRow: dpTable)
+            System.out.println(Arrays.toString(dpRow));
+        return dpTable[A.length()][B.length()];
+    }
+
+        public int levenshteinDistance2(String A, String B){
         int[][] distanceBetweenPrefixes = new int[A.length()][B.length()];
         for(int[] row: distanceBetweenPrefixes){
             Arrays.fill(row,-1);

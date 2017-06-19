@@ -25,8 +25,8 @@ public class BuyAndSellStockTwice {
         double maxPrice = Double.MIN_VALUE;
         for (int i = prices.size() - 1; i > 0; i--) {
             maxPrice = Math.max(prices.get(i), maxPrice);
-            //Max profit would be some of the this phase plus profit from last phase
             double currentProfit = maxPrice - prices.get(i);
+            //Max profit would be some of the this phase plus profit from last phase
             currentProfit = currentProfit + firstPhaseProfit.get(i-1);
             maxProfit = Math.max(currentProfit, maxProfit );
         }

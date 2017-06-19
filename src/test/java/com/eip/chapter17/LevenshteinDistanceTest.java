@@ -18,7 +18,7 @@ public class LevenshteinDistanceTest {
     public void simpleTest(){
         String one = "abcdef";
         String two = "azced";
-        int result = levenshteinDistance.levenshteinDistance(one,two);
+        int result = levenshteinDistance.levenshteinDistanceDP(one,two);
         System.out.println("Value of result " + result);
         assert result ==3;
     }
@@ -27,7 +27,7 @@ public class LevenshteinDistanceTest {
     public void complexTest(){
         String one = "Carthorse";
         String two = "Orchestra";
-        int result = levenshteinDistance.levenshteinDistance(one,two);
+        int result = levenshteinDistance.levenshteinDistanceDP(one,two);
         System.out.println("Value of result " + result);
 
     }

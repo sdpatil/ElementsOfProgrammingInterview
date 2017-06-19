@@ -9,7 +9,7 @@ import java.util.List;
  */
 public class GeneratePrime {
     /*
-        First create a binary array of 1 to n everything set to true. Then for first to 0 and 1 mark them
+        First create a binary array of 1 to n everything set to true. Then for first  0 and 1 mark them
         as non prime. After that check first value in the boolean array which is 2 mark all its multiples
         false, After that loop pick next number to see if its prime if yes mark all its prime to false,..
      */

@@ -20,7 +20,10 @@ public class ComputeValidIPAddressTest {
     @Test
     public void simpleTest(){
         List<String> ips = computeValidIPAddress.getValidIPAddress("19216811");
+        System.out.println("Number of ips " + ips.size());
+        assert ips.size() == 9;
         for(String ip: ips)
             System.out.println(ip);
+
     }
 }

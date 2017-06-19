@@ -25,4 +25,10 @@ public class PalinDromeTest {
         assert palinDrome.isPalinDrome("ABABA");
         assert !palinDrome.isPalinDrome("ABAAB");
     }
+
+    @Test
+    public void complexStringsTest(){
+        assert palinDrome.isPalinDrome("A man, a plan, a canal, Panama");
+        assert !palinDrome.isPalinDrome("Ray a Ray");
+    }
 }

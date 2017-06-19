@@ -12,7 +12,7 @@ public class BuyAndSellStockOnce {
      * You must first buy stock then only you can sell it.
      */
     public double computeMaxProfit(double[] prices) {
-        double lowestPrice = Double.MAX_VALUE;
+        double lowestPrice = prices[0];
         double maxProfit = 0.0;
         /*
         Iterate through all the stocks first calculate how much profit you can make if sell the stock at this price
@@ -20,7 +20,7 @@ public class BuyAndSellStockOnce {
         Also during this process keep checking if the current price is the lowest price
          */
 
-        for(int i = 0 ; i < prices.length ;i++){
+        for(int i = 1 ; i < prices.length ;i++){
             double currentProfit = prices[i] - lowestPrice;
             maxProfit = Math.max(currentProfit,maxProfit);
             lowestPrice = Math.min(lowestPrice,prices[i]);

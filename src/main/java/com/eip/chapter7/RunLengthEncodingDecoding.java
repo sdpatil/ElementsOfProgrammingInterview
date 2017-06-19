@@ -28,8 +28,8 @@ public class RunLengthEncodingDecoding {
         StringBuffer decodedString = new StringBuffer();
         for (int i = 0; i < s.length(); i = i + 2) {
             int charCount = Character.getNumericValue(s.charAt(i));
-            char c = s.charAt(i+1);
-            for(int j = 0; j < charCount;j++)
+            char c = s.charAt(i + 1);
+            for (int j = 0; j < charCount; j++)
                 decodedString.append(c);
         }
 

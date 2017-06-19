@@ -23,12 +23,14 @@ public class SortArrayWithRepeatedEntriesTest {
                 Arrays.asList(
                         new SortArrayWithRepeatedEntries.Person("Greg",14),
                         new SortArrayWithRepeatedEntries.Person("John",12),
-                        new SortArrayWithRepeatedEntries.Person("Andy",11),
+                        new SortArrayWithRepeatedEntries.Person("Andy",16),
                         new SortArrayWithRepeatedEntries.Person("Jim",13),
                         new SortArrayWithRepeatedEntries.Person("Phil",12),
                         new SortArrayWithRepeatedEntries.Person("Bob",13),
                         new SortArrayWithRepeatedEntries.Person("Chip",13),
                         new SortArrayWithRepeatedEntries.Person("Tim",14)
                         );
+        sortArrayWithRepeatedEntries.groupByAge(personList);
+        System.out.println(personList);
     }
 }

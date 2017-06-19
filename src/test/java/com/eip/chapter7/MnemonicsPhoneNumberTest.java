@@ -28,6 +28,7 @@ public class MnemonicsPhoneNumberTest {
     @Test
     public void complexTest(){
         List<String> mnemonicsList = mnemonicsPhoneNumber.phoneMnemonic("5103293523");
+        System.out.println("Number of Mnemonics " + mnemonicsList.size());
 
         for(String m: mnemonicsList)
             System.out.println(m);

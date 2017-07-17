@@ -20,14 +20,14 @@ public class SearchFirstOfKTest {
     @Test
     public void simpleTest(){
         List<Integer> a = Arrays.asList(-14,-10,2,108,108,243,285,285,285,401);
-        assert searchFirstOfK.searchFirstOfK(a,-10) ==1;
-        assert searchFirstOfK.searchFirstOfK(a,108) ==3;
-        assert searchFirstOfK.searchFirstOfK(a,285) ==6;
+        assert searchFirstOfK.searchForFirstK(a,-10) ==1;
+        assert searchFirstOfK.searchForFirstK(a,108) ==3;
+        assert searchFirstOfK.searchForFirstK(a,285) ==6;
     }
     @Test
     public void notFoundTest(){
         List<Integer> a = Arrays.asList(-14,-10,2,108,108,243,285,285,285,401);
-        assert searchFirstOfK.searchFirstOfK(a,0) ==-1;
+        assert searchFirstOfK.searchForFirstK(a,0) ==-1;
 
     }
 }

@@ -19,7 +19,11 @@ public class KLargestInBinaryHeap {
             this.value = value;
         }
     }
-
+    /*
+    Basic idea here is the entry at 0th location is biggest and is bigger than both its children
+    So we insert entry at 0 index into a priority queue, then every time we take out element from PQ we add
+    both its children to the PQ. The element that bubbles to top would be the max
+     */
     public List<Integer> kLargestInBinaryHeap(List<Integer> A, int k){
         List<Integer> returnList = new ArrayList<Integer>();
         PriorityQueue<HeapEntry> maxHeap = new PriorityQueue<HeapEntry>(16, new Comparator<HeapEntry>() {

@@ -18,11 +18,13 @@ public class NumberOfWaysToTraverse2DArrayTest {
     public void threeByThreeArrayTest(){
         int result = numberOfWaysToTraverse2DArray.numberOfWays(3,3);
         System.out.println("Result " + result);
+        assert result ==6;
     }
 
     @Test
     public void fiveByFiveArrayTest(){
         int result = numberOfWaysToTraverse2DArray.numberOfWays(5,5);
         System.out.println("Result " + result);
+        assert result == 70;
     }
 }

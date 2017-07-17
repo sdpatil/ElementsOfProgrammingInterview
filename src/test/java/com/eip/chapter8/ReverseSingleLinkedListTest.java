@@ -32,4 +32,13 @@ public class ReverseSingleLinkedListTest {
         ListNode<Integer> reversedList = reverseSingleLinkedList.reverseSingleLinkedList(list);
         System.out.println(reversedList);
     }
+
+    @Test
+    public void reverseSingleLinkedList3Test(){
+        ListNode<Integer> list = new ListNode<Integer>(1, new ListNode<Integer>(2, new ListNode<Integer>(3, new ListNode<Integer>(4, new ListNode<Integer>(5, null)))));
+        System.out.println(list);
+
+        ListNode<Integer> reversedList = reverseSingleLinkedList.reverseSingleLinkedList(list,1,3);
+        System.out.println(reversedList);
+    }
 }

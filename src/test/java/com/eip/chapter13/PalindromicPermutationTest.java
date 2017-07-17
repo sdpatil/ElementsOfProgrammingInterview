@@ -19,6 +19,7 @@ public class PalindromicPermutationTest {
         assert palindromicPermutation.canFormPalindrome("level") == true;
         assert palindromicPermutation.canFormPalindrome("rotator") == true;
         assert palindromicPermutation.canFormPalindrome("edified") == true;
+        assert palindromicPermutation.canFormPalindrome("aab") == true;
 
     }
 }

@@ -27,4 +27,18 @@ public class AddListBasedIntegersTest {
         ListNode<Integer> sum =addListBasedIntegers.addTwoNumbers(L1,L2);
         System.out.println(sum);
     }
+
+    @Test
+    public void simple2Test(){
+        ListNode<Integer> L1 = new ListNode<Integer>(9);
+        L1.next = new ListNode<Integer>(9);
+        L1.next.next = new ListNode<Integer>(9);
+
+        ListNode<Integer> L2 = new ListNode<Integer>(9);
+        L2.next = new ListNode<Integer>(9);
+        L2.next.next = new ListNode<Integer>(9);
+
+        ListNode<Integer> sum =addListBasedIntegers.addTwoNumbers(L1,L2);
+        System.out.println(sum);
+    }
 }

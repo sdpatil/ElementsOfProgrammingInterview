@@ -9,7 +9,26 @@ import java.util.List;
  * Created by sunilpatil on 4/1/17.
  */
 public class GenerateBinaryTree {
-    public List<BSTNode<Integer>> generateAllBinaryTrees(int numNodes){
+
+    public List<BSTNode<Integer>> generateAllBinaryTrees(int numNodes) {
+        List<BSTNode<Integer>> returnList = new ArrayList<>();
+        if(numNodes == 0){
+            returnList.add(null);
+        }
+        for(int numLeftTreeNodes = 0 ; numLeftTreeNodes < numLeftTreeNodes ; ++ numLeftTreeNodes){
+            int numRightNodes = numNodes -1 - numLeftTreeNodes;
+            List<BSTNode<Integer>> leftSubTree = generateAllBinaryTrees(numLeftTreeNodes);
+            List<BSTNode<Integer>> rightSubTree = generateAllBinaryTrees(numRightNodes);
+
+            for(BSTNode<Integer> left: leftSubTree){
+                for(BSTNode<Integer> right: rightSubTree)
+                    returnList.add(new BSTNode<Integer>(0, left, right));
+            }
+        }
+        return returnList;
+    }
+    /*
+        public List<BSTNode<Integer>> generateAllBinaryTrees(int numNodes){
         List<BSTNode<Integer>> returnList = new ArrayList<>();
         if(numNodes == 0){
             returnList.add(null);
@@ -27,6 +46,6 @@ public class GenerateBinaryTree {
             }
         }
         return returnList;
-    }
+    }*/
 
 }

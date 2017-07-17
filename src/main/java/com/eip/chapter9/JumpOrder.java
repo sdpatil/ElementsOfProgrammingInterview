@@ -1,7 +1,12 @@
 package com.eip.chapter9;
 
+import java.util.Stack;
+
 /**
- * Created by sunilpatil on 2/15/17.
+ * Problem: Calculate jump order of a linked list
+ * Solution: Maintain a stack of next nodes, every time you pull element from stack
+ * push its next node on the stack first before its jump node. Also everytime you pull
+ * node from stack use it to calculate its jump order
  */
 public class JumpOrder {
     private static class PostingListNode{
@@ -11,15 +16,18 @@ public class JumpOrder {
     }
 
     public void setJumpOrder(PostingListNode L){
-        setJumpOrder(L,0);
+
+        Stack<PostingListNode> stack = new Stack<>();
+        int order = 0;
+        stack.push(L);
+        while (!stack.isEmpty()){
+            PostingListNode current = stack.pop();
+            if(current != null && current.order == -1){
+                current.order = order++;
+                stack.push(current.next);
+                stack.push(current.jump);
+            }
+        }
     }
 
-    public int setJumpOrder(PostingListNode L, int order){
-        if(L != null && L.order != -1 ){
-            L.order = order++;
-            order = setJumpOrder(L.jump,order);
-            order = setJumpOrder(L.next, order);
-        }
-        return order;
-    }
 }

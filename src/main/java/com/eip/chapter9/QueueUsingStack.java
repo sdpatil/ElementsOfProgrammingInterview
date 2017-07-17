@@ -4,26 +4,27 @@ import java.util.NoSuchElementException;
 import java.util.Stack;
 
 /**
- * Created by sunilpatil on 2/15/17.
+ * Problem :- Implement queue interface using 2 stacks
+ *
+ * Solution:-  Basic idea is whenever your adding new element add it to first stack
+ * When removing element first reverse the whole first stack and keep it in second
+ * then every time you ask for new element take it out from second stack, till its empty
  */
 public class QueueUsingStack {
-    private Stack<Integer> enq = new Stack<Integer>();
-    private Stack<Integer> deq = new Stack<Integer>();
+    private Stack<Integer> first = new Stack<Integer>();
+    private Stack<Integer> second = new Stack<Integer>();
 
-
-    public void enqueue(Integer x){
-        enq.push(x);
+    public void enqueue(int x){
+        first.add(x);
     }
 
-    public Integer dequeue(){
-        if(deq.isEmpty()){
-            while(!enq.isEmpty()){
-                deq.push(enq.pop());
-
-            }
+    public int dequeue(){
+        if(second.isEmpty()){
+            while (!first.isEmpty())
+                second.push(first.pop());
         }
-        if(!deq.isEmpty())
-            return deq.pop();
-        throw new NoSuchElementException("Queue is empty");
+        if(!second.isEmpty())
+            return second.pop();
+        throw new NoSuchElementException("");
     }
 }

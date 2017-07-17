@@ -13,7 +13,6 @@ public class SortIncreasingDecreasingArray {
     public List<Integer> sortKIncreasingDecreasingArray(List<Integer> A){
         List<List<Integer>> sortedSubArrays = new ArrayList<List<Integer>>();
 
-
         List<Integer> sortedArray = new ArrayList<Integer>();
         sortedArray.add(A.get(0));
         int direction = INCREASING;

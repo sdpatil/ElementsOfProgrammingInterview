@@ -8,13 +8,12 @@ import java.util.List;
  */
 public class InOrderTraversalWithConstantSpace {
 
-    public void inOrderTraversal(BinaryTree<Integer> tree) {
+    public void inOrderTraversal2(BinaryTree<Integer> tree) {
         BinaryTree<Integer> prev = null, curr = tree;
         List<Integer> result = new ArrayList<Integer>();
         while (curr != null) {
             BinaryTree<Integer> next = null;
             if (curr.parent == prev) {
-
                 if (curr.left != null) {
                     next = curr.left;
                 } else {
@@ -50,5 +49,37 @@ public class InOrderTraversalWithConstantSpace {
             returnNode = returnNode.parent;
 
         return returnNode.parent;
+    }
+
+    /*
+    Problem: Perform in order traversal of binary tree without using recursion or stack (No space)
+     */
+    public void inOrderTraversal(BinaryTree<Integer> tree) {
+        BinaryTree<Integer> prev = null;
+        BinaryTree<Integer> current = tree;
+        List<Integer> result = new ArrayList<>();
+        while (current != null){
+            BinaryTree<Integer> next;
+            // If previous node equal to parent means we are in the left ree
+            if(current.parent == prev){
+                //Start iterating through the left side tree
+                if(current.left != null) {
+                    next = current.left;
+                }else{
+                    result.add(current.data);
+                    next = ( current.right != null ? current:current.parent);
+                }
+            }else if(prev == current.left){
+                // If previous is current.left that means we just finished going through left node
+                // so add current data to list and start moving in right direction
+                result.add(current.data);
+                next = ( current.right != null ? current:current.parent);
+            }else{
+                //Done with both right and left sibling so move up
+                next = current.parent;
+            }
+            prev = current;
+            current = next;
+        }
     }
 }

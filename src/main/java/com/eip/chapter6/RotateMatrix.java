@@ -14,24 +14,24 @@ public class RotateMatrix {
      * 9  10 11 12        15 11  7  3
      * 13 14 15 16        16 12  8  4
      * Basic idea is same as spiral ordering go layer by layer
-     *
      */
-    public void rotateMatrix(List<List<Integer>> squareMatrix){
-        final int matrixSize = squareMatrix.size()-1;
+    public void rotateMatrix2(List<List<Integer>> squareMatrix) {
+        final int matrixSize = squareMatrix.size() - 1;
         //Outer loop deals with one layer at a time
-        for(int i = 0; i < (squareMatrix.size()/2) ; ++i){
+        for (int i = 0; i < (squareMatrix.size() / 2); ++i) {
             //In every layer read 4 values store them in temp. variable and rotate them
 
-            for(int j = i; j < matrixSize-i ; ++j ){
-                int temp1 = squareMatrix.get(matrixSize -j).get(i);
-                int temp2 = squareMatrix.get(matrixSize -i).get(matrixSize-j);
-                int temp3 = squareMatrix.get(j).get(matrixSize -i);
+            for (int j = i; j < matrixSize - i; ++j) {
+                int temp1 = squareMatrix.get(matrixSize - j).get(i);
+                int temp2 = squareMatrix.get(matrixSize - i).get(matrixSize - j);
+                int temp3 = squareMatrix.get(j).get(matrixSize - i);
                 int temp4 = squareMatrix.get(i).get(j);
-                squareMatrix.get(i).set(j,temp1);
-                squareMatrix.get(matrixSize -j).set(i,temp2);
-                squareMatrix.get(matrixSize-i).set(matrixSize-j,temp3);
-                squareMatrix.get(j).set(matrixSize-i,temp4);
+                squareMatrix.get(i).set(j, temp1);
+                squareMatrix.get(matrixSize - j).set(i, temp2);
+                squareMatrix.get(matrixSize - i).set(matrixSize - j, temp3);
+                squareMatrix.get(j).set(matrixSize - i, temp4);
             }
         }
     }
+
 }

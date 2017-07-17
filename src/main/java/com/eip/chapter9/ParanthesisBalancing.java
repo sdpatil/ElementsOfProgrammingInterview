@@ -3,7 +3,8 @@ package com.eip.chapter9;
 import java.util.Stack;
 
 /**
- * Created by sunilpatil on 2/15/17.
+ * Problem: Check parenthesis for balancing
+ * Solution: - Use stack to balance paranthesis
  */
 public class ParanthesisBalancing {
 

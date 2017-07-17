@@ -5,40 +5,42 @@ import java.util.Collections;
 import java.util.NoSuchElementException;
 
 /**
- * Created by sunilpatil on 2/15/17.
+ * Problem: Impelment a Queue using Circular array
+ *
+ * Solution:- Basic idea is keep a head and tail element every time you enqueue tail goes up by 1 and
+ * every time you dequeue head goes up by 1. Since this is circular array take modulo of num of elements
+ * in the queue by entries.length to find out actual location of the element to enqueue or dequeue
  */
 public class CircularQueue {
     private int head =0, tail = 0, numQueueElements = 0;
     private Integer[] entries;
-    private static final int SCALE_FACTOR =2;
 
     public CircularQueue(int capacity){
-        entries = new Integer[capacity];
+        this.entries = new Integer[capacity];
     }
 
-    public void enqueue(Integer x){
+    public void enqueue(int x){
+        // The array of entries is full so resize the array
         if(numQueueElements == entries.length){
+            //First rotate the array so that all elements appear in order
             Collections.rotate(Arrays.asList(entries), -head);
-            head = 0;
+            head =0;
             tail = numQueueElements;
-            entries = Arrays.copyOf(entries,numQueueElements*SCALE_FACTOR);
+            //Double size of the array
+            entries = Arrays.copyOf(entries, numQueueElements*2);
         }
         entries[tail] =x;
-        tail = (tail +1) %entries.length;
+        tail = (tail+1) % entries.length;
         ++numQueueElements;
     }
 
-    public Integer dequeue(){
+    public int dequeue(){
         if(numQueueElements != 0){
             --numQueueElements;
             Integer ret = entries[head];
-            head = (head +1) %entries.length;
+            head = (head+1) %entries.length;
             return ret;
         }
-        throw new NoSuchElementException("Dequeue called on empty queue");
-    }
-
-    public int size(){
-        return numQueueElements;
+        throw new NoSuchElementException();
     }
 }

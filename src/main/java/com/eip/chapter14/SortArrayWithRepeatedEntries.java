@@ -48,9 +48,7 @@ public class SortArrayWithRepeatedEntries {
             Map.Entry<Integer,Integer> from = ageToOffset.entrySet().iterator().next();
             Integer toAge = personList.get(from.getValue()).age;
             Integer toValue = ageToOffset.get(toAge);
-            System.out.println("Swapping " + from.getValue()+ " toValue " + toValue +" " + ageToOffset);
             Collections.swap(personList, from.getValue(),toValue);
-
             Integer count = ageToCount.get(toAge)-1;
             ageToCount.put(toAge,count);
             if(count >0 ){

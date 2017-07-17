@@ -7,7 +7,33 @@ import java.util.Stack;
  */
 public class PalindromicLinkedList {
 
-    public boolean isPalindrome(ListNode<Integer> head){
+    /*
+    Problem: Check whether a linked list is palindromic
+    Solution:- First use two pointers to find middle of the list, break the list into 2 parts and revserse
+    second part. Now start compairing first and reverse of reverse of second part, if they dont match
+    its not palindromic string
+     */
+    public boolean isPalindrome(ListNode<Integer> head) {
+        //First step is to find the middle point
+        ListNode<Integer> slow = head, fast = head;
+
+        while (fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        ListNode firstHalf = head;
+        ListNode secondHalf = ReverseSingleLinkedList.reverseSingleLinkedList(slow);
+        while (secondHalf != null && firstHalf != null){
+            if(secondHalf.data != firstHalf.data)
+                return false;
+            secondHalf = secondHalf.next;
+            firstHalf = firstHalf.next;
+        }
+        return true;
+    }
+
+    public boolean isPalindrome2(ListNode<Integer> head){
         Stack<Integer> stack = new Stack<Integer>();
         ListNode<Integer> slowPointer = head;
         ListNode<Integer> fastPointer = head;

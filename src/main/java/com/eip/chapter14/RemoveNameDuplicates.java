@@ -10,12 +10,10 @@ public class RemoveNameDuplicates {
     public static class Name implements Comparable<Name>{
         String firstName;
         String lastName;
-
         public Name(String firstName, String lastName) {
             this.firstName = firstName;
             this.lastName = lastName;
         }
-
         public int compareTo(Name o) {
             int cmpFirst = firstName.compareTo(o.firstName);
             if(cmpFirst != 0)
@@ -23,7 +21,6 @@ public class RemoveNameDuplicates {
 
             return lastName.compareTo(o.lastName);
         }
-
         @Override
         public String toString() {
             return "Name{" +
@@ -34,27 +31,20 @@ public class RemoveNameDuplicates {
     }
 
     /*
-    This question is about how to remove duplicates
+    Problem: This question is about how to remove objects with same first name
+    Solution: First sort the collection based on firstName so that records with same first name appear
+    next to each other. Then iterate through the collection checking if first name is same for two consecutive entries
+    if yes dont copy it to original entry
      */
     public List<Name> eliminateDuplicate(List<Name> A) {
         Collections.sort(A);
         int writeIndex = 1;
-        for(int i = 1; i < A.size(); i++){
-            if(!A.get(i).firstName.equals(A.get(i-1).firstName)){
+        for (int i = 1; i < A.size(); i++) {
+            if (!A.get(i).firstName.equals(A.get(i - 1).firstName)) {
                 A.set(writeIndex++, A.get(i));
             }
         }
-        return A.subList(0,writeIndex );
+        //Remove the remaining entries
+        return A.subList(0, writeIndex);
     }
-
-     /*   public List<Name> eliminateDuplicate2(List<Name> A){
-        Collections.sort(A);
-        int result = 0;
-        for(int i = 1; i < A.size();i++){
-            if(!A.get(i).firstName.equals(A.get(result).firstName))
-                A.set(++result,A.get(i));
-        }
-
-        return A.subList(0,++result);
-    }*/
 }

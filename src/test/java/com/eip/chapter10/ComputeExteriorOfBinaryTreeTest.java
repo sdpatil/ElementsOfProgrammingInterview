@@ -39,7 +39,7 @@ public class ComputeExteriorOfBinaryTreeTest {
     @Test
     public void simpleTest(){
         List<BinaryTreeNode<String>> binaryTreeNodeList = computeExteriorOfBinaryTree.exteriorBinaryTree(rootNode);
-
+        System.out.println(binaryTreeNodeList);
         assert binaryTreeNodeList.size() ==11;
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
  */
 public class ComputeSpiralOrdering2DArray {
     //Basic idea is to solve the problem layer by first get outer most layer then go inward
-    public List<Integer> matrixInSpiralOrder    (List<List<Integer>> squareMatrix) {
+    public List<Integer> matrixInSpiralOrder(List<List<Integer>> squareMatrix) {
         List<Integer> spiralOrder = new ArrayList<>();
         for (int i = 0; i < Math.ceil(0.5 * squareMatrix.size()); i++) {
             matrixLayerInClockWise(squareMatrix, spiralOrder, i);
@@ -41,6 +41,38 @@ public class ComputeSpiralOrdering2DArray {
         //Left column
         for (int j = squareMatrix.size() - offset - 1; j > offset; j--) {
             spiralOrder.add(squareMatrix.get(j).get(offset));
+        }
+    }
+
+    public void matrixInSpiralOrder(int[][] squareMatrix) {
+        spiralPrint(squareMatrix.length, squareMatrix[0].length,squareMatrix);
+    }
+
+    public void spiralPrint(int endRow, int endColumn, int[][] squareMatrix){
+        int startRow = 0;
+        int startColumn = 0;
+        int i =0;
+        while (startRow < endRow && startColumn < endColumn){
+            for( i = startColumn ; i < endColumn ; i++){
+                System.out.print(squareMatrix[startRow][i] +" ");
+            }
+            startRow++;
+            for(i = startRow ; i < endRow ; i++){
+                System.out.print(squareMatrix[i][endColumn-1] +" ");
+            }
+            endColumn--;
+            if(startRow< endRow) {
+                for (i = endColumn-1; i >= startColumn; i--) {
+                    System.out.print(squareMatrix[endRow-1][i] +" ");
+                }
+                endRow--;
+            }
+            if(startColumn  < endColumn){
+                for(i = endRow-1 ; i >= startRow; i--){
+                    System.out.print(squareMatrix[i][startColumn]+" ");
+                }
+                startColumn++;
+            }
         }
     }
 }

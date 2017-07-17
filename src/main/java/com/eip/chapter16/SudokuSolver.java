@@ -7,105 +7,53 @@ import java.util.List;
  */
 public class SudokuSolver {
 
-  /*  private static final int EMPTY_ENTRY = 0;
+    private static final int EMPTY_ENTRY = 0;
 
     public boolean solveSudoku(List<List<Integer>> partialAssignment){
-        return solvePartialSudoku(partialAssignment,0,0);
+        return solvePartitionSudoku(0,0,partialAssignment);
     }
 
-    public boolean solvePartialSudoku(List<List<Integer>> partialAssignment, int i, int j){
-        if(i == partialAssignment.size()){
-          i =0;
+    private boolean solvePartitionSudoku(int i, int j, List<List<Integer>> partialAssignment){
+        if(i == partialAssignment.size()) {
+            i = 0;
+            if(++j == partialAssignment.get(i).size())
+                return true;
         }
-        return false;
-    }
-
-    public boolean validAddToVal(List<List<Integer>> partialAssignment){
-        return false;
-    }*/
-
-  public void  solve(int[][] board){
-      int[][] status = new int[board.length][board[0].length];
-      for(int i = 0; i < board.length; i++){
-          for(int j = 0; j < board[0].length; j++){
-              status[i][j] = board[i][j] >0?2:0;
-          }
-      }
-      solve(board,status,0,0);
-  }
-
-  public boolean solve(int[][] board, int[][] status, int x, int y){
-    if(x == 9){
-        int count =0 ;
-        for(int i = 0; i < board.length; i++){
-            for(int j = 0; j < board[0].length; j++){
-               if(board[i][j] > 0){
-                   count = count+1;
-               }
-            }
+        if(partialAssignment.get(i).get(j) != EMPTY_ENTRY){
+            solvePartitionSudoku(i+1,j, partialAssignment);
         }
-        if(count ==81)
-            return true;
-        else
-            return false;
-
-    }
-    if(status[x][y] >=1){
-        int nextX = x;
-        int nextY = y+1;
-        if(nextY ==9){
-            nextX = x+1;
-            nextY =0;
-        }
-        return solve(board,status,nextX,nextY);
-    }else{
-        boolean[] used = new boolean[9];
-        for(int i = 0 ; i < 9 ; i++){
-            if(status[x][i] >=1){
-                used[board[x][i]-1] = true;
-            }
-        }
-
-        for(int i = 0 ; i < 9 ; i++){
-            if(status[i][y] >=1){
-                used[board[i][y]-1] = true;
-            }
-        }
-        for(int i = x-(x%3) ; i < x- (x%3) +3;i++){
-            for(int j = y - (y%3); j < y - (y%3) +3;j++){
-                if(status[i][j] >= 1)
-                    used[board[i][j]-1] = true;
-
-            }
-        }
-        for(int i = 0; i < used.length;i++){
-            if(!used[i]){
-                status[x][y] =1;
-                board[x][y] = i+1;
-                int nextX = x;
-                int nextY = y+1;
-
-                if(nextY == 9){
-                    nextX = x+1;
-                    nextY = 0;
-
-                }
-                if(solve(board,status,nextX,nextY))
+        for(int val = 1; val <= partialAssignment.size() ;val++){
+            if(validToAddVal(partialAssignment,i,j,val)){
+                partialAssignment.get(i).set(j,val);
+                if(solvePartitionSudoku(i+1,j,partialAssignment))
                     return true;
-
-                for(int m = 0; m < 9; m++){
-                    for(int n = 0; n < 9; n++){
-                        if(m >x || (m ==x && n >=y)){
-                            if(status[m][n] ==1){
-                                status[m][n] =0;
-                                board[m][n] =0;
-                            }
-                        }
-                    }
-                }
             }
         }
+        partialAssignment.get(i).set(j, EMPTY_ENTRY);
+        return false;
     }
-    return false;
-  }
+
+    private boolean validToAddVal(List<List<Integer>> partialAssignment, int row, int column, int val){
+        for(List<Integer> elements: partialAssignment){
+            if(val == elements.get(column))
+                return false;
+        }
+        for(int k = 0 ; k < partialAssignment.size(); k++){
+            if(val == partialAssignment.get(row).get(k))
+                return false;
+        }
+        int regionSize = (int)Math.sqrt(partialAssignment.size());
+        int i = row/regionSize;
+        int j = column/regionSize;
+        for(int a = 0; a < regionSize; a++){
+            for(int b = 0 ; b < regionSize; b++){
+                if(val == partialAssignment.get(i*regionSize + a).get(regionSize*j +b))
+                    return false;
+            }
+        }
+        return true;
+    }
+
+
+
 }

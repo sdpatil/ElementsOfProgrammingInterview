@@ -5,24 +5,24 @@ package com.eip.chapter12;
  */
 public class ComputeRealSquareRoot {
 
-    public double squareRoot(double x){
+    public double squareRoot(double x) {
         double left, right;
-        if(x < 1.0){
-            left  = x;
+        if (x < 1.0) {
+            left = x;
             right = 1.0;
-        }else{
+        } else {
             left = 1.0;
             right = x;
         }
-        while (compare(left,right) == Ordering.SMALLER){
-            double middle = left + ((right-left)/2);
-            double midSquared = middle*middle;
-            if(compare(midSquared,x) == Ordering.EQUAL)
+        while (compare(left, right) == Ordering.SMALLER) {
+            double middle = left + ((right - left) / 2);
+            double midSquared = middle * middle;
+            if (compare(midSquared, x) == Ordering.EQUAL)
                 return middle;
 
-            if(compare(midSquared,x) == Ordering.LARGER){
+            if (compare(midSquared, x) == Ordering.LARGER) {
                 right = middle;
-            }else{
+            } else {
                 left = middle;
             }
         }
@@ -30,15 +30,15 @@ public class ComputeRealSquareRoot {
         return left;
     }
 
-    public static enum Ordering {SMALLER,EQUAL,LARGER}
-    public Ordering compare(double a, double b){
+    public static enum Ordering {SMALLER, EQUAL, LARGER}
+    public Ordering compare(double a, double b) {
         final double EPSILON = 0.00001;
-        double diff = (a-b)/b;
-        if(diff < -EPSILON)
+        double diff = (a - b) / b;
+        if (diff < -EPSILON)
             return Ordering.SMALLER;
-        else if(diff > EPSILON){
+        else if (diff > EPSILON) {
             return Ordering.LARGER;
-        }else
+        } else
             return Ordering.EQUAL;
     }
 }

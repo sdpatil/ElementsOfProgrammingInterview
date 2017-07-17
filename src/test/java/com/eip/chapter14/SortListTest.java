@@ -27,4 +27,21 @@ public class SortListTest {
         ListNode<Integer> head2 = sortList.stableSortList(head);
         System.out.println(head2);
     }
+
+    @Test
+    public void mergeSortedListTest(){
+        ListNode<Integer> first = new ListNode<Integer>(1);
+        first.next = new ListNode<Integer>(3);
+        first.next.next = new ListNode<Integer>(5);
+
+        ListNode<Integer> second = new ListNode<Integer>(2);
+        second.next = new ListNode<Integer>(4);
+        second.next.next = new ListNode<Integer>(6);
+
+        ListNode<Integer> result = sortList.mergeTwoSortedLists(first,second);
+        while (result != null){
+            System.out.println(result.data);
+            result = result.next;
+        }
+    }
 }

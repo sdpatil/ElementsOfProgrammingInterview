@@ -7,44 +7,49 @@ import java.util.List;
  */
 public class OverlappingLists {
 
-    public ListNode<Integer> overlappingNoCycleLists(ListNode<Integer> first, ListNode<Integer> second){
-        int firstLength = length(first);
-        int secondLength = length(second);
-        int max = Math.max(firstLength,secondLength);
-        if(firstLength> secondLength){
-            first = advancedList(first, max-secondLength);
-        }else if(firstLength < secondLength){
-            second = advancedList(second, max-firstLength);
+    /*
+        Problem:- Check if two linked lists are overlapping with each other
+        Solution:- Basic idea is that,if two lists overlap with each other then they will have same end point.
+
+        1) Calculate length of both lists
+        2) Find out which node is longer and by how much, advance in longer node by those many steps
+        3) Now start advancing in both longer and shorter node at same speed, if you find intersection then
+            thats the intersection point
+     */
+    public ListNode<Integer> overlappingNoCycleLists(ListNode<Integer> first, ListNode<Integer> second) {
+        int lengthOfFirst = getLength(first);
+        int lengthOfSecond = getLength(second);
+        ListNode<Integer> longer, shorter;
+        if(lengthOfFirst > lengthOfSecond){
+            longer = first;
+            shorter = second;
+        }else{
+            longer = second;
+            shorter = first;
         }
-        System.out.println("After advancing first " + first );
-        System.out.println("After advancing second " + second );
-        while (first != null && second != null){
-            if(first == second)
-                return first;
-            first = first.next;
-            second = second.next;
+
+        int diff = Math.abs(lengthOfFirst-lengthOfSecond);
+        while (diff-- > 0){
+            longer = longer.next;
+        }
+
+        while (longer != null && shorter !=null){
+            if(longer == shorter)
+                return longer;
+            longer = longer.next;
+            shorter = shorter.next;
         }
         return null;
     }
-
-    ListNode<Integer> advancedList(ListNode<Integer> head, int adv){
-        int counter = 0;
-        ListNode<Integer> next = head;
-        while(counter < adv){
-            next = next.next;
-            counter++;
+    //Calculate length of list
+    public int getLength(ListNode<Integer> head){
+        int count = 0;
+        while (head != null){
+            head = head.next;
+            count++;
         }
-        return next;
+        return count;
     }
 
-     int length(ListNode<Integer> node){
-        int length = 0;
-        ListNode<Integer> next = node;
-        while(next != null){
-            length = length+1;
-            next = next.next;
-        }
-        return length;
 
-    }
 }

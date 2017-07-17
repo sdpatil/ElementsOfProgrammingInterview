@@ -5,9 +5,12 @@ import java.util.NoSuchElementException;
 import java.util.PriorityQueue;
 
 /**
- * Created by sunilpatil on 2/14/17.
+ * Stack using Heap has simple idea which is whenver you have to put item, in the stack put it in the heap with
+ * insertion number of current item, priority queue takes care of ordering items based on insertion number and given
+ * you the one which is inserted last
  */
 public class StackUsingHeap {
+    // This class is used to store the actual value along with the rank it would be inserted at
     private static class ValueWithRank{
         Integer value;
         Integer rank;

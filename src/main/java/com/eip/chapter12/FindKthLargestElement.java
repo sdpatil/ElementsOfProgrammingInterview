@@ -1,10 +1,12 @@
 package com.eip.chapter12;
 
+import java.util.Random;
+
 /**
  * Created by sunilpatil on 2/22/17.
  */
 public class FindKthLargestElement {
-    public int findKth(int[] A, int k){
+    public int findKth2(int[] A, int k){
         int left = 0;
         int right = A.length-1;
         k = k -1;
@@ -58,5 +60,44 @@ public class FindKthLargestElement {
         int temp = A[first];
         A[first] = A[second];
         A[second] = temp;
+    }
+
+    /**
+     * Problem: Find kth largest element
+     * Solution:- Basic idea is to perform quicksort type of routine if we find that the pivot of search is equal
+     * to k return it, if not find if the pivot is on the right or left of current pivot and quicksort those
+     * elements
+     */
+    public int findKth(int[] A, int k){
+        int left = 0 ;
+        int right =  A.length-1;
+        k = k -1;
+        while (left<= right){
+            int pivotIndex = partitionAroundPivot(A, left,right);
+            if(pivotIndex == k)
+                return A[pivotIndex];
+            else if(pivotIndex< k)
+                left = pivotIndex+1;
+            else
+                right = pivotIndex-1;
+        }
+        return -1;
+    }
+
+    /*
+    This method is use for rearranging the array so that all the elements less than randomly chosen pivot are
+     */
+    public int partitionAroundPivot(int[] A, int left, int right){
+        Random random = new Random();
+        int pivotIndex = random.nextInt(right - left+1)+ left;
+        int pivotValue = A[pivotIndex];
+        int newPivotIndex = left;
+
+        for(int i = left ; i  < right ; i++){
+            if(A[i]<  pivotValue)
+                swap(A, i, newPivotIndex++);
+        }
+        swap(A, right,newPivotIndex);
+        return newPivotIndex;
     }
 }

@@ -20,7 +20,7 @@ public class GenerateAllSubsetsOfSizeKTest {
     public void simpleTest(){
        List<List<Integer>> resultList = generateAllSubsetsOfSizeK.combination(5,2);
        for(List<Integer> result:resultList)
-           System.out.println(result);
+           System.out.print(result +" ");
 
        assert resultList.size() == 10;
     }

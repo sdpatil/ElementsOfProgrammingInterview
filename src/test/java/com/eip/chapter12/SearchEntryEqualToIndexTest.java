@@ -26,7 +26,9 @@ public class SearchEntryEqualToIndexTest {
 
     @Test
     public void negativeTest(){
-        List<Integer> list = Arrays.asList(-2,-1,0,1,2,3,6,7,9);
-        assert searchEntryEqualToIndex.searchEntryEqualToItsIndex(list) ==-1;
+        List<Integer> list = Arrays.asList(-2,-1,0,1,2,3,8,10,12);
+        int result = searchEntryEqualToIndex.searchEntryEqualToItsIndex(list);
+        System.out.println("Result " + result);
+        assert  result==-1;
     }
 }

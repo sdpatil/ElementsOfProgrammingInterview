@@ -17,8 +17,6 @@ public class ReverseBitsTest {
     @Test
     public void simpleTest(){
         int i = 73;
-        System.out.println(Integer.toBinaryString(i));
-        long result = problem.swapBits(73,1,6);
-        System.out.println(Long.toBinaryString(result));
+
     }
 }

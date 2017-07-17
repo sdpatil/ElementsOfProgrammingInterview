@@ -25,7 +25,27 @@ public class OptimumTaskAssignment {
                     '}';
         }
     }
+    /*
+        Problem: Given set of tasks we need to assign tasks so that total time of completition is lowest
 
+        Solution: SOrt all the tasks by their duration. Once its done then pair highest time  with lowest time and walk inwards
+     */
+    public List<PairedTasks> optimumTaskAssignment(List<Integer> taskDurations) {
+        Collections.sort(taskDurations);
+        List<PairedTasks> tasksList = new ArrayList<>();
+        int start =0;
+        int end = taskDurations.size()-1;
+
+        while (start <= end){
+            int firstTask = taskDurations.get(start++);
+            int secondTask = taskDurations.get(end--);
+            PairedTasks tasks = new PairedTasks(firstTask,secondTask);
+            tasksList.add(tasks);
+        }
+        return tasksList;
+    }
+
+    /*
     public List<PairedTasks> optimumTaskAssignment(List<Integer> taskDurations) {
         List<PairedTasks> taskAssignment = new ArrayList<PairedTasks>();
 
@@ -39,6 +59,6 @@ public class OptimumTaskAssignment {
         }
 
         return taskAssignment;
-    }
+    }*/
 
 }

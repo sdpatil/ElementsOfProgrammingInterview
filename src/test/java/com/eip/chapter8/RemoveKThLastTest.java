@@ -25,6 +25,7 @@ public class RemoveKThLastTest {
         System.out.println(header);
 
         ListNode<Integer> removedNode =removeKThLast.removeKthLast(header,2);
+        System.out.println(header);
         assert removedNode.data ==3;
 
         System.out.println("After deleting kth node " + header);

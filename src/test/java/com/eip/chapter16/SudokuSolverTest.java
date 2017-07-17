@@ -3,7 +3,9 @@ package com.eip.chapter16;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by sunilpatil on 4/2/17.
@@ -16,6 +18,28 @@ public class SudokuSolverTest {
         sudokuSolver = new SudokuSolver();
     }
 
+    @Test
+    public void simpleTest() {
+       List<List<Integer>> puzzle = new ArrayList<>();
+       puzzle.add(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0));
+        puzzle.add(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0));
+        puzzle.add(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0));
+        puzzle.add(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0));
+        puzzle.add(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0));
+        puzzle.add(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0));
+        puzzle.add(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0));
+        puzzle.add(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0));
+        puzzle.add(Arrays.asList(0, 0, 0, 0, 0, 0, 0, 0, 0));
+
+
+
+        sudokuSolver.solveSudoku(puzzle);
+
+        System.out.println("**********");
+        for (List<Integer> row : puzzle)
+            System.out.println(row);
+    }
+/*
     @Test
     public void simpleTest() {
         int[][] puzzle = {
@@ -32,7 +56,7 @@ public class SudokuSolverTest {
         };
         for (int[] row : puzzle)
             System.out.println(Arrays.toString(row));
-        sudokuSolver.solve(puzzle);
+        sudokuSolver.solveSudoku(puzzle);
 
         System.out.println("**********");
         for (int[] row : puzzle)
@@ -59,5 +83,5 @@ public class SudokuSolverTest {
         System.out.println("**********");
         for (int[] row : puzzle)
             System.out.println(Arrays.toString(row));
-    }
+    }*/
 }

@@ -21,6 +21,8 @@ public class GasupProblemTest {
     public void simpleTest(){
         List<Integer> gallonsList = Arrays.asList(50,20,5,30,25,10,10);
         List<Integer> distanceList = Arrays.asList(900,600,200,400,600,200,100);
-        System.out.println(gasupProblem.findAmpleCity(gallonsList,distanceList));
+        int result = gasupProblem.findAmpleCity(gallonsList,distanceList);
+        System.out.println("Result " + result);
+        assert  result == 3;
     }
 }

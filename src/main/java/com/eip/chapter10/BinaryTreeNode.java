@@ -8,6 +8,7 @@ public class BinaryTreeNode<T> {
     public int size;
     public BinaryTreeNode<T> left,right;
 
+
     public int depth;
     public int inOrder;
 

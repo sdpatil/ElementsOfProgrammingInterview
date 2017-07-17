@@ -21,6 +21,7 @@ public class ComputeStringDecompositionTest {
     public void simpleTest(){
         List<String> wordList = Arrays.asList("can","apl","ana");
         List<Integer> result = computeStringDecomposition.findAllSubStrings("amanaplanacanal",wordList);
+        System.out.println("Result " + result);
         assert result.size() ==1;
         assert result.get(0) ==4;
     }

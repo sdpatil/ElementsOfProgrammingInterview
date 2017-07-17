@@ -17,11 +17,9 @@ public class LockedBinaryTree {
     public boolean isLocked() {
         return locked;
     }
-
     public boolean lock() {
         if (numLockedDescendant > 0 || locked == true)
             return false;
-
         for (LockedBinaryTree curr = parent; curr != null; curr = curr.parent) {
             if (curr.isLocked())
                 return false;
@@ -30,7 +28,6 @@ public class LockedBinaryTree {
         for (LockedBinaryTree curr = parent; curr != null; curr = curr.parent) {
             curr.numLockedDescendant++;
         }
-
         return true;
     }
 

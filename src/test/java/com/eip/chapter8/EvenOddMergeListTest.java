@@ -21,10 +21,10 @@ public class EvenOddMergeListTest {
         headNode.next.next = new ListNode<Integer>(3);
         headNode.next.next.next = new ListNode<Integer>(4);
         headNode.next.next.next.next = new ListNode<Integer>(5);
-        headNode.next.next.next.next.next = new ListNode<Integer>(6);
+      //  headNode.next.next.next.next.next = new ListNode<Integer>(6);
 
         System.out.println("Before " + headNode);
-        ListNode<Integer> newHead = evenOddMergeList.evenOddMerge2(headNode);
+        ListNode<Integer> newHead = evenOddMergeList.evenOddMerge(headNode);
         System.out.println("After " + newHead);
 
         assert newHead.data == 1;

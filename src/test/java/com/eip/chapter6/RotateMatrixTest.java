@@ -27,8 +27,11 @@ public class RotateMatrixTest {
         matrix.add(Arrays.asList(9,10,11,12));
         matrix.add(Arrays.asList(13,14,15,16));
 
-        System.out.println(matrix);
-        rotateMatrix.rotateMatrix(matrix);
-        System.out.println(matrix);
+        for(List<Integer> row: matrix)
+            System.out.println(row);
+       // rotateMatrix.rotateMatrix(matrix);
+        System.out.println("");
+        for(List<Integer> row: matrix)
+            System.out.println(row);
     }
 }

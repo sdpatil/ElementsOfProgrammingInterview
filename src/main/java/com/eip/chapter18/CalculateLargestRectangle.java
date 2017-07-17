@@ -15,7 +15,6 @@ public class CalculateLargestRectangle {
         for(int i = 0; i < heights.size(); i++){
             if(!pillarIndices.isEmpty() && i < heights.size()
                     && heights.get(i).equals(heights.get(pillarIndices.peekFirst()))) {
-
                 pillarIndices.removeFirst();
                 pillarIndices.addFirst(i);
             }

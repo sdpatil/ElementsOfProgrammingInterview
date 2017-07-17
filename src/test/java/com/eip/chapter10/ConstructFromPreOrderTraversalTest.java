@@ -21,7 +21,7 @@ public class ConstructFromPreOrderTraversalTest {
     public void simpleTest(){
         List<String> nodeList = Arrays.asList("H","B","F",null,null,"E","A",null,null,null,"C",null,"D",null,"G","I",null,null,null);
         BinaryTreeNode<String> tree =constructFromPreOrderTraversal.reconstructPreorder(nodeList);
-
+        BTreePrinter.printNode(tree);
         System.out.println(tree);
     }
 }

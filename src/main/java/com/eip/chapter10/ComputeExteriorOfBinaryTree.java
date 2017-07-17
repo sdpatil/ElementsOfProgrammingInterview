@@ -2,6 +2,7 @@ package com.eip.chapter10;
 
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -10,41 +11,44 @@ import java.util.List;
 public class ComputeExteriorOfBinaryTree {
 
     public List<BinaryTreeNode<String>> exteriorBinaryTree(BinaryTreeNode<String> tree){
-        List<BinaryTreeNode<String>> returnList = new ArrayList<BinaryTreeNode<String>>();
+        List<BinaryTreeNode<String>> result = new LinkedList<>();
+        if(tree!= null){
+            result.add(tree);
+            result.addAll(leftBoundaryAndLeaves(tree.left, true));
+            result.addAll(rightBoundaryAndLeaves(tree.right, true));
 
-        createListOfLeavesHelper(tree,returnList);
-        addLeftSide(tree,returnList);
-        addRightSide(tree,returnList);
-
-        System.out.println("ReturnList " + returnList);
-        return returnList;
-    }
-
-    public void createListOfLeavesHelper(BinaryTreeNode<String> root, List<BinaryTreeNode<String>> list){
-        if(root == null)
-            return;
-        createListOfLeavesHelper(root.left,list);
-        if(root.right == null && root.left == null) {
-            list.add(root);
-            System.out.println("Leaf Node" +root.data);
         }
-        createListOfLeavesHelper(root.right,list);
+        return result;
     }
 
-    public void addLeftSide(BinaryTreeNode<String> root, List<BinaryTreeNode<String>> list){
-        if(root == null)
-            return;
-        if(list.contains(root) ==false) {
-            list.add(root);
+    public List<BinaryTreeNode<String>> leftBoundaryAndLeaves(BinaryTreeNode<String> subTreeRoot,
+                                                               boolean isBoundary){
+        List<BinaryTreeNode<String>> result = new LinkedList<>();
+        if(subTreeRoot != null){
+            if(isBoundary || isLeaf(subTreeRoot))
+                result.add(subTreeRoot);
+
+            result.addAll(leftBoundaryAndLeaves(subTreeRoot.left,isBoundary));
+            result.addAll(leftBoundaryAndLeaves(subTreeRoot.right,isBoundary && subTreeRoot.left == null));
         }
-        addLeftSide(root.left,list);
+        return result;
     }
 
-    public void addRightSide(BinaryTreeNode<String> root, List<BinaryTreeNode<String>> list){
-        if(root == null)
-            return;
-        if(list.contains(root) ==false)
-            list.add(root);
-        addLeftSide(root.right,list);
+    public List<BinaryTreeNode<String>> rightBoundaryAndLeaves(BinaryTreeNode<String> subTreeRoot,
+                                                               boolean isBoundary){
+        List<BinaryTreeNode<String>> result = new LinkedList<>();
+        if(subTreeRoot != null){
+            result.addAll(rightBoundaryAndLeaves(subTreeRoot.left,isBoundary && subTreeRoot.right == null));
+            result.addAll(leftBoundaryAndLeaves(subTreeRoot.right,isBoundary));
+            if(isBoundary || isLeaf(subTreeRoot))
+                result.add(subTreeRoot);
+
+
+        }
+        return result;
+    }
+
+    public boolean isLeaf(BinaryTreeNode<String> tree){
+        return tree.left == null && tree.right == null;
     }
 }

@@ -4,7 +4,10 @@ import java.util.Stack;
 import java.util.StringTokenizer;
 
 /**
- * Created by sunilpatil on 2/15/17.
+ * Problem :- Evaluate expression in reverse polish order notation
+ * Solution: - First separate the string into multiple parts based on , and then check if the
+ * character is sign if yes pull two operators from stack perform math. operation and push result on the
+ * stack, if the pulled character is number put it on stack
  */
 public class EvaluateRPNExpression {
     public int eval(String RPNExpression){
@@ -16,7 +19,6 @@ public class EvaluateRPNExpression {
                 int first = evalValues.pop();
                 int second = evalValues.pop();
                 evalValues.push(first*second);
-
             }else if(symbol.equals("/")){
                 int first = evalValues.pop();
                 int second = evalValues.pop();

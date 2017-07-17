@@ -37,10 +37,10 @@ public class ListOfLeafsTest {
 
     }
 
-    @Test
+  /*  @Test
     public void simpleTest(){
         List<BinaryTreeNode<String>> listOfLeaves = listOfLeafs.createListOfLeaves(rootNode);
         System.out.println(listOfLeaves);
-    }
+    }*/
 }
 

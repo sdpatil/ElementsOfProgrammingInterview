@@ -34,13 +34,16 @@ public class FindKthLargestElementTest {
     @Test
     public void middleTest(){
         int[] A = new int[]{3,2,1,5,4};
-        assert findKthLargestElement.findKth(A,3) ==3;
+        int result = findKthLargestElement.findKth(A,3);
+        System.out.println("Result " + result);
+        assert result ==3;
 
     }
 
     @Test
     public void smallestTest(){
         int[] A = new int[]{3,2,1,5,4};
+        System.out.println(findKthLargestElement.findKth(A,1));
         assert findKthLargestElement.findKth(A,1) ==1;
     }
 

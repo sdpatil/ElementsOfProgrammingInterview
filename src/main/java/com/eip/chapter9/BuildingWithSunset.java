@@ -1,14 +1,11 @@
 package com.eip.chapter9;
 
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Stack;
+import java.util.*;
 
 /**
- * Created by sunilpatil on 2/15/17.
+ * Given a set of buildings
  */
-public class BuildingWithSunset {
+public class    BuildingWithSunset {
 
     public static class BuildingWithHeight{
         Integer id;
@@ -20,16 +17,32 @@ public class BuildingWithSunset {
         }
     }
 
-    public Deque<BuildingWithHeight> examineBuildingWithSunset(Iterator<Integer> sequence){
+    /*
+    Problem: Given list of buildings from east to west calculate which all buildings will get sunset view
+    Solution: Basic idea is if there is a taller building on west it will block sunset of building on east
+    to implement this create a stack. Now start iterating from east to west, if the current building is
+    shorter than the building on stack add it to stack, but if its taller then take out all the buildings
+    on stack which are shorter than it
+     */
+    public List<BuildingWithHeight> examineBuildingWithSunset(Iterator<Integer> sequence){
         int buildingIndx = 0;
-        Deque<BuildingWithHeight> buildingWithSunSet = new LinkedList<BuildingWithHeight>();
+        Stack<BuildingWithHeight> buildingWithSunSet = new Stack<>();
         while(sequence.hasNext()){
             Integer buildingHeight = sequence.next();
-            while(!buildingWithSunSet.isEmpty() && (Integer.compare(buildingHeight, buildingWithSunSet.getLast().height )>=0))
-                buildingWithSunSet.removeLast();
-            buildingWithSunSet.addLast(new BuildingWithHeight(buildingIndx++, buildingHeight));
+            while(!buildingWithSunSet.isEmpty() &&
+                    (Integer.compare(buildingHeight, buildingWithSunSet.peek().height )>=0))
+                buildingWithSunSet.pop();
+            buildingWithSunSet.push(new BuildingWithHeight(buildingIndx++, buildingHeight));
 
         }
         return buildingWithSunSet;
+    }
+
+    public static void main(String[] argv){
+        BuildingWithSunset buildingWithSunset = new BuildingWithSunset();
+        List<Integer> buildingHeights = Arrays.asList(4,2,3,1);
+        List<BuildingWithHeight> sunsetViewList = buildingWithSunset.examineBuildingWithSunset(buildingHeights.iterator());
+
+        System.out.println(sunsetViewList);
     }
 }

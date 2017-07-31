@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Created by sunilpatil on 6/14/17.
+ * Problem: Given a n*m matrix of color and starting point x and y, change colors of all adjacent points of
+ * starting point to same color
  */
 public class PaintABooleanMatrix {
     public static class Coordinate {
@@ -20,7 +21,6 @@ public class PaintABooleanMatrix {
         This function performs level order search, first get color of the start point and add start
         point to queue.
         Take out top most element from queue and
-
      */
     public void flipColors(List<List<Boolean>> matrix, int x, int y){
         int[][] nextNodes = {

@@ -3,7 +3,8 @@ package com.eip.chapter19;
 import java.util.*;
 
 /**
- * Created by sunilpatil on 6/14/17.
+ * Problem: Let A be 2D array whose entries are either W or B. Write a program that takes A and replaces
+ * all Ws that cannot reach the boundary within B
  */
 public class FillSurroundedRegions {
     public static class Coordinate{
@@ -13,13 +14,17 @@ public class FillSurroundedRegions {
             this.y = y;
         }
     }
+    /*
+        Explore all 4 boundaries and for every white space and starting from that space
+        mark all the neghibors as visited
+     */
     public void fillSurroundedRegions(List<List<Character>> board){
         if(board.isEmpty()) return;
         List<List<Boolean>> visited = new ArrayList<>(board.size());
         for(int i = 0 ; i < board.size() ;i++){
             visited.add(new ArrayList<>(Collections.nCopies(board.get(i).size(),false)));
         }
-        for(int i = 0 ; i < board.size(); i++){        //Let most column
+        for(int i = 0 ; i < board.size(); i++){        //Left most column
             if(!visited.get(i).get(0) && board.get(i).get(0) =='W')
                 markBoundaryRegion(i,0,board,visited);
         }
@@ -37,13 +42,18 @@ public class FillSurroundedRegions {
             if(!visited.get(lastRow).get(i) && board.get(lastRow).get(i) =='W')
                 markBoundaryRegion(lastRow,i,board,visited);
         }
-        for(int i =1 ; i < board.size() ;i++){ // Whatever cell is not visited and is white change it to black
+        // Whatever cell is not visited and is white change it to black
+        for(int i =1 ; i < board.size() ;i++){
             for(int j = 0 ; j < board.get(i).size() ;j++){
                 if(!visited.get(i).get(j) && board.get(i).get(j) == 'W')
                     board.get(i).set(j,'B');
             }
         }
     }
+
+    /*
+        Mark all the points on the board to black which are reachable from given point
+     */
     public void markBoundaryRegion(int x, int y, List<List<Character>> board,List<List<Boolean>> visited ){
         Queue<Coordinate> q = new LinkedList<>();
         q.add(new Coordinate(x,y));

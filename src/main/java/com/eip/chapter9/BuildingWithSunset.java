@@ -5,9 +5,9 @@ import java.util.*;
 /**
  * Given a set of buildings
  */
-public class    BuildingWithSunset {
+public class BuildingWithSunset {
 
-    public static class BuildingWithHeight{
+    public static class BuildingWithHeight {
         Integer id;
         Integer height;
 
@@ -24,13 +24,13 @@ public class    BuildingWithSunset {
     shorter than the building on stack add it to stack, but if its taller then take out all the buildings
     on stack which are shorter than it
      */
-    public List<BuildingWithHeight> examineBuildingWithSunset(Iterator<Integer> sequence){
+    public List<BuildingWithHeight> examineBuildingWithSunset(Iterator<Integer> sequence) {
         int buildingIndx = 0;
         Stack<BuildingWithHeight> buildingWithSunSet = new Stack<>();
-        while(sequence.hasNext()){
+        while (sequence.hasNext()) {
             Integer buildingHeight = sequence.next();
-            while(!buildingWithSunSet.isEmpty() &&
-                    (Integer.compare(buildingHeight, buildingWithSunSet.peek().height )>=0))
+            while (!buildingWithSunSet.isEmpty() &&
+                    (Integer.compare(buildingHeight, buildingWithSunSet.peek().height) >= 0))
                 buildingWithSunSet.pop();
             buildingWithSunSet.push(new BuildingWithHeight(buildingIndx++, buildingHeight));
 
@@ -38,9 +38,9 @@ public class    BuildingWithSunset {
         return buildingWithSunSet;
     }
 
-    public static void main(String[] argv){
+    public static void main(String[] argv) {
         BuildingWithSunset buildingWithSunset = new BuildingWithSunset();
-        List<Integer> buildingHeights = Arrays.asList(4,2,3,1);
+        List<Integer> buildingHeights = Arrays.asList(4, 2, 3, 1);
         List<BuildingWithHeight> sunsetViewList = buildingWithSunset.examineBuildingWithSunset(buildingHeights.iterator());
 
         System.out.println(sunsetViewList);

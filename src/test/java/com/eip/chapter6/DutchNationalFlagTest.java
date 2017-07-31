@@ -28,7 +28,7 @@ public class DutchNationalFlagTest {
         flags.add(Color.WHITE);
         flags.add(Color.WHITE);
 
-        dutchNationalFlag.dutchFlagPartition4(Color.WHITE.ordinal(),flags);
+        dutchNationalFlag.dutchFlagPartition(Color.WHITE.ordinal(),flags);
 
         System.out.println("Partitioned flags " +flags);
         List<Color> partitioned = new ArrayList();

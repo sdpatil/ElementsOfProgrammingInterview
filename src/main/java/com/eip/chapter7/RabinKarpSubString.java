@@ -8,12 +8,6 @@ import java.util.Random;
  */
 public class RabinKarpSubString {
 
-    public int rabinKarp(String t, String s) {
-        return 0;
-    }
-
-
-
     public static class RabinKarp{
         private String pattern;
         private long patHash;

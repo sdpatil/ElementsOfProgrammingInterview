@@ -30,5 +30,25 @@ public class NumberOfMovesToClimbStairs {
         return computeNumberOfWays(n,maximumSteps-1) + computeNumberOfWays(n-1,maximumSteps);
     }
 
+    /*
+    You are climbing a stair case. It takes n steps to reach to the top.Each time you can either climb 1 or 2 steps.
+    In how many distinct ways can you climb to the top?
+
+     Basic idea is that clibm stairs is very similar
+     */
+    public int climbStairs(int n) {
+        int first = 0;
+        int second = 1;
+        int temp = 0;
+        System.out.print(first +" " + second +" ");
+        for(int i = 0 ; i < n -2 ; i++ ){
+            temp = first+second;
+            System.out.print(temp +" ");
+            first = second;
+            second = temp;
+        }
+        return temp;
+    }
+
 
 }

@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * Created by sunilpatil on 6/14/17.
+ * Problem: Write a program that takes as input a directed graph and checks if the graph contains a cycle
  */
 public class DeadlockDetection {
     public static class GraphVertex {
@@ -56,13 +56,4 @@ public class DeadlockDetection {
         return false;
     }
 
-    public boolean hasCycle2(GraphVertex current,boolean[] visited) {
-        current.color = GraphVertex.Color.GRAY;
-        for (GraphVertex nextVertex : current.edges) {
-            if (nextVertex.color != GraphVertex.Color.BLACK)
-                return hasCycle(nextVertex);
-        }
-        current.color = GraphVertex.Color.BLACK;
-        return false;
-    }
 }

@@ -26,7 +26,7 @@ public class DeleteDuplicates {
         System.out.println("Exiting deleteDuplicates " + Arrays.toString(A));
     }
 
-    public void deleteDuplicate2(int[] A){
+    public void deleteDuplicate(int[] A){
         System.out.println("Entering deleteDuplicate2 " +Arrays.toString(A));
         int copyCounter = 1;
         for(int i = 1; i < A.length;i++){

@@ -11,7 +11,7 @@ public class ReverseBits {
 
     /*
         Problem: Given a number reverse its bits. Ex. given
-        1011 you shoudl return 1101
+        1011 you should return 1101
 
         Solution: Basic idea is simple take out the last bit from number
         by executing n&1, then adding that bit to result and shifting all bits

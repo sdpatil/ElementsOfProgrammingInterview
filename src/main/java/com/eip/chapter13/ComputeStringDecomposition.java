@@ -5,9 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * Created by sunilpatil on 2/23/17.
- */
+
 public class ComputeStringDecomposition {
 
     /*
@@ -61,35 +59,4 @@ public class ComputeStringDecomposition {
     }
 
 
-    public boolean matchallWordsInDict2(String s, Map<String,Integer> wordToFreq, int start, int numWords, int unitSize){
-        Map<String,Integer> currStringToFreq = new HashMap<String, Integer>();
-        for (int i = 0 ; i < numWords ;i++){
-            String currWord = s.substring(start + i * unitSize, start+(i+1)*unitSize);
-            Integer freq = wordToFreq.get(currWord);
-            if(freq == null)
-                return false;
-
-            increment(currWord, currStringToFreq);
-            if(currStringToFreq.get(currWord) > freq){
-                return false;
-            }
-        }
-        return true;
-    }
-
-
-
-    public Map<String,Integer> countWordFrequency(List<String> wordList){
-        Map<String,Integer> wordToFrequencyMap = new HashMap<String, Integer>();
-        for(String word:wordList){
-
-            if(wordToFrequencyMap.containsKey(word)){
-                int currentFrequency = wordToFrequencyMap.get(word);
-                wordToFrequencyMap.put(word,currentFrequency+1);
-            }else {
-                wordToFrequencyMap.put(word,1);
-            }
-        }
-        return wordToFrequencyMap;
-    }
 }

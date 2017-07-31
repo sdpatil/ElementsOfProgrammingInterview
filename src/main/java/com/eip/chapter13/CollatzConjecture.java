@@ -4,7 +4,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 /**
- * Created by sunilpatil on 2/23/17.
+ * Problem: The collatz conjecture is as follows, take any natural number if its odd triple it and add one. if it is
+ * even halve it. Repeat the process indefinetly. No matter what number you start with eventually you will end up with 1
  */
 public class CollatzConjecture {
 
@@ -32,6 +33,4 @@ public class CollatzConjecture {
         }
         return true;
     }
-
-
 }

@@ -6,7 +6,8 @@ import java.util.List;
 import java.util.PriorityQueue;
 
 /**
- * Created by sunilpatil on 2/14/17.
+ * Problem: Given a max-heap represented as an array, design an algorithm that computes the k largest
+ * elements stored in the max-heap. You cannot modify heap.
  */
 public class KLargestInBinaryHeap {
 

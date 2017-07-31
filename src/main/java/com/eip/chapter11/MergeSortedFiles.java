@@ -3,7 +3,9 @@ package com.eip.chapter11;
 import java.util.*;
 
 /**
- * Created by sunilpatil on 2/14/17.
+ * Problem: Write a program that takes as input a set of sorted sequences and computes the
+ * union of these sequences as a sorted sequences. For example, if the input is (3,5,7),
+ * (0,6) and {0,6,28} then the output is {0,0,3,5,6,6,7,28}
  */
 public class MergeSortedFiles {
 

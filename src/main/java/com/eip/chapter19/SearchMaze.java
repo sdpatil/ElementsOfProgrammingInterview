@@ -5,7 +5,8 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Created by sunilpatil on 5/3/17.
+ * Problem: Given a maze of white and black points, return a path you can take using white points from
+ * start to end
  */
 public class SearchMaze {
 

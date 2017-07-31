@@ -5,7 +5,7 @@ import java.util.Queue;
 import java.util.Set;
 
 /**
- * Created by sunilpatil on 6/14/17.
+ * Problem: Given a dictionary D and 2 strings s and t, write a program to determine if s produces t.
  */
 public class TransformOneStringToAnother {
 

@@ -47,6 +47,4 @@ public class StringToInt {
             returnValue = returnValue * -1;
         return returnValue;
     }
-
-
 }

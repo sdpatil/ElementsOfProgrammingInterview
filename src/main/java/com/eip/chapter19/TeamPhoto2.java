@@ -6,7 +6,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 /**
- * Created by sunilpatil on 6/14/17.
+ * Problem: You have set of teams that can be photographed together by placing them one behind another
+ * given large number of team what is the largest number of teams that you can put one behind another
+ * to take a photograph
  */
 public class TeamPhoto2 {
     public static class GraphVertex{
@@ -53,6 +55,4 @@ public class TeamPhoto2 {
         }
         return maxDistance;
     }
-
-
 }

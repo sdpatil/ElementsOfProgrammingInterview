@@ -35,7 +35,7 @@ public class AddStrings {
         if(arrayIndex < 0){
             return 0;
         }else{
-            return Integer.parseInt(A[arrayIndex]+"");
+            return Character.getNumericValue(A[arrayIndex]);
         }
     }
 }

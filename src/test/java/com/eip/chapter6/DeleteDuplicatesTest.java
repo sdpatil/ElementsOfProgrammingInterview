@@ -20,7 +20,7 @@ public class DeleteDuplicatesTest {
     @Test
     public void simpleTest(){
         int[] a = new int[] {2,3,5,5,7,11,11,11,13};
-        deleteDuplicates.deleteDuplicate2(a);
+        deleteDuplicates.deleteDuplicate(a);
 
         int[] c = new int[] {2,3,5,7,11,13,0,0,0};
         assert Arrays.equals(a,c);

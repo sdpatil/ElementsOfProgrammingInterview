@@ -4,9 +4,12 @@ import java.util.*;
 import java.util.regex.MatchResult;
 
 /**
- * Created by sunilpatil on 5/2/17.
+ * Problem: Given a map of which team has beaten other team in the past, return whether team A
+ * can beat team B
+ * Solution: - Build a graph in which edges go from winning team to loosing team, then perform
+ * DFS in this graph from
  */
-public class Bootcamp {
+public class CanTeamABeatTeamB {
     public static class MatchResult{
         public String winningTeam;
         public String losingTeam;

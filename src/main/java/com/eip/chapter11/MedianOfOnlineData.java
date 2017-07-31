@@ -5,11 +5,16 @@ import java.util.Iterator;
 import java.util.PriorityQueue;
 
 /**
- * Created by sunilpatil on 2/14/17.
+ * Problem: YOu want to compute the running median of sequence of numbers.
  */
 public class MedianOfOnlineData {
     private static final int DEFAULT_INITIAL_CAPACITY = 16;
 
+    /*
+    Solution: Maintain minimum and maximum heap, min heap keeps the upper half of number and the max heap
+    keeps lower half of the number. If the minHeap and maxHeap size are same median is peek of both heaps
+    divided by 2. If they are not same median is minHeap top
+     */
 
     public void onlineMedian(Iterator<Integer> sequence){
         PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();

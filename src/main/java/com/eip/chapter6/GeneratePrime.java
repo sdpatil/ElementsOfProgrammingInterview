@@ -29,7 +29,4 @@ public class GeneratePrime {
         return primes;
     }
 
-    public static void main(String[] argv){
-        System.out.println(generatePrimes(10));
-    }
 }

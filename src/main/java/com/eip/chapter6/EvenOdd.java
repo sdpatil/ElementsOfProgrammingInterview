@@ -21,16 +21,4 @@ public class EvenOdd {
         }
     }
 
-    public void evenOdd(int[] i){
-        int nextEven = 0, nextOdd = i.length-1;
-        while(nextEven < nextOdd){
-            if(i[nextEven] %2 == 0)
-                nextEven++;
-            else{
-                int temp = i[nextEven];
-                i[nextEven] = i[nextOdd];
-                i[nextOdd--] = temp;
-            }
-        }
-    }
 }

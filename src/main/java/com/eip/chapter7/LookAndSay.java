@@ -1,15 +1,14 @@
 package com.eip.chapter7;
 
 /**
- * Created by sunilpatil on 3/13/17.
+ * Problem: This method takes n as input and returns nth lookandsay string ex. 3rd look and feel string is 21
+ * {1,11,21,1211,111221}
  */
 public class LookAndSay {
 
     /*
-     * This method takes n as input and returns nth lookandsay string ex. 3rd look and feel string is 21
-      * {1,11,21,1211,111221}
-     *  call lookAndSayRec() n times with output of previous method as input
-     * ]*/
+      * Solution:- Call lookAndSayRec() n times with output of previous method as input
+    */
     public String lookAndSay(int n) {
         String lookAndSayString = "1";
         for (int i = 1; i < n; i++) {
@@ -37,30 +36,6 @@ public class LookAndSay {
                 currentCount = 1;
             }
         }
-
         return result.toString();
-    }
-
-    public String lookAndSayRec2(String input) {
-        StringBuffer lookAndSayString = new StringBuffer();
-        char[] c = input.toCharArray();
-
-        char currentNum = c[0];
-        int numCount = 1;
-        for (int i = 1; i < input.length(); i++) {
-            if (currentNum == c[i])
-                numCount++;
-            else {
-                lookAndSayString.append(numCount);
-                lookAndSayString.append(currentNum);
-                currentNum = c[i];
-                numCount = 1;
-            }
-        }
-        lookAndSayString.append(numCount);
-        lookAndSayString.append(currentNum);
-
-
-        return lookAndSayString.toString();
     }
 }

@@ -1,7 +1,10 @@
 package com.eip.chapter7;
 
 /**
- * Created by sunilpatil on 2/8/17.
+ * Problem: Given a string check whether it is palindromic or not
+ * Solution: Start 2 pointers one from start other from end and keep traversing inward till
+ * they meet to check if the characters are same or not
+ *
  */
 public class TestPalindromicity {
 

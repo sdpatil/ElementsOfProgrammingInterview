@@ -4,15 +4,13 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * Created by sunilpatil on 3/11/17.
+ * Problem: Team Photo
+ * If you get two arrays of players heights representing 2 teams can you
+ * place them one behind another for photo
  */
 public class TeamPhoto {
 
-    /**
-     * Team Photo
-     * If you get two arrays of players heights representing 2 teams can you
-     * place them one behind another for photo
-     */
+
     public boolean validPlacementExists(int[] A, int[] B ){
         // First sort both team players by height so that tallest player of one team goes behind
         // tallest player of other team

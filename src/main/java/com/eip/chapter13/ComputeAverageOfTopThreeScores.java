@@ -61,32 +61,4 @@ public class ComputeAverageOfTopThreeScores {
         return totalScore/3;
     }
 
-     /*   public String findStudentWithHighestOfThreeScores(Iterator<StudentScore> nameScoreData){
-        HashMap<String, PriorityQueue<Integer>> studentTop3Scores = new HashMap<String, PriorityQueue<Integer>>();
-        while(nameScoreData.hasNext()){
-            StudentScore studentScore = nameScoreData.next();
-            String name = studentScore.name;
-            int score = studentScore.score;
-            PriorityQueue<Integer> scoreQueue = studentTop3Scores.get(name);
-            if(scoreQueue == null){
-                scoreQueue = new PriorityQueue<Integer>();
-                studentTop3Scores.put(name, scoreQueue);
-            }
-            scoreQueue.add(score);
-            while(scoreQueue.size() >3)
-                scoreQueue.poll();
-        }
-        String studentName = null;
-        int currentTopScore = Integer.MIN_VALUE;
-        for(Map.Entry<String, PriorityQueue<Integer>> studentPriorityQueueEntry: studentTop3Scores.entrySet()){
-            int studentScore = calculateTopScore(studentPriorityQueueEntry.getValue());
-            if(studentScore > currentTopScore){
-                studentName = studentPriorityQueueEntry.getKey();
-                currentTopScore = studentScore;
-            }
-        }
-        return studentName;
-    }
-*/
-
 }

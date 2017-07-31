@@ -1,28 +1,20 @@
 package com.eip.chapter11;
 
-import java.util.Collections;
 import java.util.Iterator;
 import java.util.PriorityQueue;
 
 /**
- * Created by sunilpatil on 2/14/17.
+ * Problem: Write a program which takes as input a very long sequence of number and prints
+ * the number in sorted order. Each number is at most k away from its correctly sorted position
+ *
  */
 public class SortApproximatelySortedArray {
 
-    public void sortApproximatelySortedData2(Iterator<Integer> sequence, int k) {
-        PriorityQueue<Integer> maxHeap = new PriorityQueue<Integer>();
-
-        while (sequence.hasNext()) {
-            Integer n = sequence.next();
-            maxHeap.add(n);
-
-            if (maxHeap.size() == k) {
-                System.out.println(maxHeap.remove());
-            }
-        }
-        while (!maxHeap.isEmpty())
-            System.out.println(maxHeap.remove());
-    }
+    /*
+    Solution: Create a PriorityQueue and keep inserting elements in it, when it is has k elements
+    then take out min and print it, after that everytime you insert a element take out one from
+    PQ and insert it into queue
+     */
 
     public void sortApproximatelySortedData(Iterator<Integer> sequence, int k) {
         PriorityQueue<Integer> minHeap = new PriorityQueue<Integer>();

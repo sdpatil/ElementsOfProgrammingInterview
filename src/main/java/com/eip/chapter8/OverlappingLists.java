@@ -1,6 +1,5 @@
 package com.eip.chapter8;
 
-import java.util.List;
 
 /**
  * Created by sunilpatil on 3/8/17.
@@ -19,6 +18,7 @@ public class OverlappingLists {
     public ListNode<Integer> overlappingNoCycleLists(ListNode<Integer> first, ListNode<Integer> second) {
         int lengthOfFirst = getLength(first);
         int lengthOfSecond = getLength(second);
+
         ListNode<Integer> longer, shorter;
         if(lengthOfFirst > lengthOfSecond){
             longer = first;
@@ -41,6 +41,7 @@ public class OverlappingLists {
         }
         return null;
     }
+
     //Calculate length of list
     public int getLength(ListNode<Integer> head){
         int count = 0;
@@ -50,6 +51,4 @@ public class OverlappingLists {
         }
         return count;
     }
-
-
 }

@@ -1,6 +1,5 @@
 package com.eip.chapter6;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -11,13 +10,6 @@ import java.util.List;
  */
 public class MultiplyIntegers {
 
-    public static void main(String[] argv) {
-        List<Integer> first = Arrays.asList(1, 2, 3);
-        List<Integer> second = Arrays.asList(9, 8, 7);
-        MultiplyIntegers multiplyIntegers = new MultiplyIntegers();
-        List<Integer> result = multiplyIntegers.multiply(first, second);
-        System.out.println(result);
-    }
 
     public List<Integer> multiply(List<Integer> num1, List<Integer> num2) {
         List<Integer> result = new ArrayList<>(Collections.nCopies(num1.size() + num2.size(), 0));

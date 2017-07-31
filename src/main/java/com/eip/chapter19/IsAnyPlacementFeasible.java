@@ -6,7 +6,9 @@ import java.util.List;
 import java.util.Queue;
 
 /**
- * Created by sunilpatil on 6/14/17.
+ * Problem: Design an algorithm that takes a set of pins and set of wires connecting pairs of pins and
+ * determines if it is possible to place some pins on the left half of the PCB and the remainder on the right
+ * half, such that each wire is between left and right halves.
  */
 public class IsAnyPlacementFeasible {
         public static class GraphVertex{ // Store vertex along with its distance from start of BFS

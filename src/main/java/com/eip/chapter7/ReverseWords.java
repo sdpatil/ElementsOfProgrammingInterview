@@ -1,28 +1,14 @@
 package com.eip.chapter7;
 
 /**
- * Created by sunilpatil on 3/13/17.
+ * Problem: This method is used to reverse a sentence Ex. "Alice likes Bob" should be reversed to
+ "Bob likes Alice"
  */
 public class ReverseWords {
-    public void reverseWords1(char[] input) {
-        reverse(input, 0, input.length - 1);
-
-        int startWord = 0;
-        int endOfWord = -1;
-        for (int i = 1; i < input.length - 1; i++) {
-            if (input[i] == ' ') {
-                endOfWord = i - 1;
-                reverse(input, startWord, endOfWord);
-                startWord = i + 1;
-            }
-        }
-        reverse(input, startWord, input.length - 1);
-    }
 
     /**
-        This method is used to reverse a sentence Ex. "Alice likes Bob" should be reversed to
-        "Bob likes Alice"
-     Basic idea is simple first reverse all characters then reverse individual words
+     Solution: - Basic idea is simple first reverse all characters in string, then find all the words and
+     reverse individual words
      */
     public void reverseWords(char[] input) {
         //First reverse the whole string
@@ -42,7 +28,6 @@ public class ReverseWords {
 
     /**
      * This method can reverse all characters in char array starting between start and end index
-
      */
     public void reverse(char[] c, int start, int end){
         while(start< end){
@@ -53,7 +38,4 @@ public class ReverseWords {
             end = end-1;
         }
     }
-
-
-
 }

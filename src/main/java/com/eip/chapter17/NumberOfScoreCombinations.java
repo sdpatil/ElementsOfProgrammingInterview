@@ -43,21 +43,5 @@ public class NumberOfScoreCombinations {
         for(int[] dpRow: dpTable)
             System.out.println(Arrays.toString(dpRow));
     }
-        public int numOfCombinationsForFinalScore2(int finalScore, int[] indivdiualPlayScore) {
-        int[][] numCombinationsForScore = new int[indivdiualPlayScore.length][finalScore + 1];
-        for (int i = 0; i < indivdiualPlayScore.length; i++) {
-            numCombinationsForScore[i][0] = 1;
-            for (int j = 1; j <= finalScore; ++j) {
-                int withoutThisPlay = 0;
-                if (i-1 >= 0) {
-                    withoutThisPlay = numCombinationsForScore[i - 1][j];
-                }
-                int withThisPlay = 0;
-                if (j >= indivdiualPlayScore[i])
-                    withThisPlay = numCombinationsForScore[i][j - indivdiualPlayScore[i]];
-                numCombinationsForScore[i][j] = withThisPlay + withoutThisPlay;
-            }
-        }
-        return numCombinationsForScore[indivdiualPlayScore.length - 1][finalScore];
-    }
+
 }

@@ -38,6 +38,6 @@ public class ValidateBST {
         if(root.data < min || root.data > max)
             return false;
 
-        return isBinaryTreeBSTHelper(root,min, root.data) || isBinaryTreeBSTHelper(root,root.data, max);
+        return isBinaryTreeBSTHelper(root.left,min, root.data) || isBinaryTreeBSTHelper(root.right,root.data, max);
     }
 }

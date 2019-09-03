@@ -26,9 +26,5 @@ public class SpreadsheetColumnEncodingTest {
         assert spreadsheetColumnEncoding.ssDecodeColID("ZZ") ==702;
     }
 
-    @Test
-    public void ssDecodColIDA0(){
-        assert spreadsheetColumnEncoding.ssDecodeColIDA0("A") ==0;
-        assert spreadsheetColumnEncoding.ssDecodeColIDA0("D") ==3;
-    }
+
 }

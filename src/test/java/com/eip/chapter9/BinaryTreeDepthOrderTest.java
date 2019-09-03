@@ -1,6 +1,5 @@
 package com.eip.chapter9;
 
-import com.eip.chapter10.BTreePrinter;
 import com.eip.chapter10.BinaryTree;
 import com.eip.chapter6.BinaryTreeDepthOrder;
 import org.junit.Before;

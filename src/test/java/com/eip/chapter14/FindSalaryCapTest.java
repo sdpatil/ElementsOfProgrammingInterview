@@ -17,14 +17,5 @@ public class FindSalaryCapTest {
         findSalaryCap = new FindSalaryCap();
     }
 
-    @Test
-    public void simpleTest(){
-        List<Double> salaryList = Arrays.asList(90.0,30.0,100.0,40.0,20.0);
 
-        double salaryCap = findSalaryCap.findSalaryCap(210,salaryList);
-
-        System.out.println("Salary Cap " + salaryCap);
-        assert salaryCap == 60;
-
-    }
 }

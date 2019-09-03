@@ -35,9 +35,15 @@ public class ValidateBSTTest {
     }
 
     @Test
-    public void simpleTest() {
-        assert validateBST.isBinaryTreeBST(rootNode);
-        rootNode.left.left.left.right = new BSTNode<Integer>(20);
-        assert !validateBST.isBinaryTreeBST(rootNode);
+   public void singleIntegerMaxTest(){
+        BSTNode<Integer> testNode = new BSTNode<>(Integer.MAX_VALUE);
+        assert validateBST.isBinaryTreeBST(testNode);
+   }
+
+    @Test
+    public void twoSameNodesTest(){
+        BSTNode<Integer> testNode = new BSTNode<>(1);
+        testNode.left = new BSTNode<>(1);
+        assert !validateBST.isBinaryTreeBST(testNode);
     }
 }

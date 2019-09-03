@@ -13,7 +13,7 @@ public class RemoveDuplicatesFromSortedListTest {
     public void setup(){
         removeDuplicatesFromSortedList = new RemoveDuplicatesFromSortedList();
     }
-
+/*
     @Test
     public void simpleTest(){
         ListNode<Integer> header = new ListNode<Integer>(1);
@@ -49,5 +49,5 @@ public class RemoveDuplicatesFromSortedListTest {
 
         System.out.println(header);
         System.out.println("After remove duplicate " +removeDuplicatesFromSortedList.length(header));
-    }
+    }*/
 }

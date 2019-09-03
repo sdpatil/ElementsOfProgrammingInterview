@@ -22,12 +22,7 @@ public class ConvertBaseTest {
         assert convertBase.convertFromStringToBase("64",16)==100;
     }
 
-    @Test
-    public void convertFromIntToString(){
-        assert convertBase.constructFromBase(123,10).equals("123");
-        assert convertBase.constructFromBase(7,2).equals("111");
-        assert convertBase.constructFromBase(100,16).equals("64");
-    }
+
 
     @Test
     public void convertFromBases(){
@@ -37,7 +32,6 @@ public class ConvertBaseTest {
     @Test
     public void convertBase(){
         System.out.println(convertBase.convertFromStringToBase("1000",-2));
-        System.out.println(convertBase.constructFromBase(-8,-2));
 
     }
 }

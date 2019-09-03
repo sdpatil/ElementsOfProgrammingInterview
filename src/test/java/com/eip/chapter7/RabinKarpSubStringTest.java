@@ -14,10 +14,5 @@ public class RabinKarpSubStringTest {
         rabinKarpSubString = new RabinKarpSubString();
     }
 
-    @Test
-    public void simpleTest(){
-        assert rabinKarpSubString.rabinKarp("abc","abdabc") == 3;
 
-        assert rabinKarpSubString.rabinKarp("abc","adbacb") == -1;
-    }
 }
